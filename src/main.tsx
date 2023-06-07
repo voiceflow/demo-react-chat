@@ -1,3 +1,4 @@
 import { createRoot } from 'react-dom/client'
+import { Demo } from './Demo'
 
-createRoot(document.getElementById('root')!).render(<h1>hey there</h1>);
+createRoot(document.getElementById('root')!).render(<Demo />);
