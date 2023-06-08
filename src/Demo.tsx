@@ -1,9 +1,22 @@
 import { Chat, ChatWindow, Launcher, SessionStatus, SystemResponse, TurnType, UserResponse, useRuntime } from '@voiceflow/react-chat';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { match } from 'ts-pattern';
 
 const IMAGE = 'https://picsum.photos/seed/1/200/300';
 const AVATAR = 'https://picsum.photos/seed/1/80/80';
+
+const CUSTOM_MESSAGE_TYPE = 'calendar';
+
+const Calendar: React.FC<{ message: any }> = ({ message }) => (
+  <div
+    style={{
+      border: '1px solid #ddd',
+      padding: '.5rem',
+    }}
+  >
+    MY CUSTOM CALENDAR: {JSON.stringify(message)}
+  </div>
+);
 
 export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -12,6 +25,16 @@ export const Demo: React.FC = () => {
     verify: { authorization: import.meta.env.VF_DM_API_URL },
     session: { userID: `anonymous-${Math.random()}` },
   });
+
+  useEffect(() => {
+    runtime.register({
+      canHandle: ({ type }) => type === 'hello',
+      handle: ({ context }, trace) => {
+        context.messages.push({ type: CUSTOM_MESSAGE_TYPE, payload: JSON.parse(trace.payload) } as any);
+        return context;
+      },
+    });
+  }, []);
 
   const handleLaunch = async () => {
     setOpen(true);
@@ -69,9 +92,25 @@ export const Demo: React.FC = () => {
           {runtime.session.turns.map((turn, turnIndex) =>
             match(turn)
               .with({ type: TurnType.USER }, ({ id, type: _, ...props }) => <UserResponse {...props} key={id} />)
-              .with({ type: TurnType.SYSTEM }, ({ id, type: _, ...props }) => (
-                <SystemResponse key={id} {...props} avatar={AVATAR} isLast={turnIndex === runtime.session.turns.length - 1} />
-              ))
+              .with({ type: TurnType.SYSTEM }, ({ id, type: _, ...props }) => {
+                return (
+                  <SystemResponse
+                    {...props}
+                    key={id}
+                    Message={(props) =>
+                      match(props)
+                        .with({ message: { type: CUSTOM_MESSAGE_TYPE as any } }, () => {
+                          return <Calendar message={props.message} />;
+                        })
+                        .otherwise(() => {
+                          return <SystemResponse.SystemMessage {...props} />;
+                        })
+                    }
+                    avatar={AVATAR}
+                    isLast={turnIndex === runtime.session.turns.length - 1}
+                  />
+                );
+              })
               .exhaustive()
           )}
           {runtime.indicator && <SystemResponse.Indicator avatar={AVATAR} />}
