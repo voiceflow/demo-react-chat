@@ -22,7 +22,7 @@ export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   const runtime = useRuntime({
-    verify: { authorization: import.meta.env.VF_DM_API_URL },
+    verify: { authorization: import.meta.env.VF_DM_API_KEY },
     session: { userID: `anonymous-${Math.random()}` },
   });
 

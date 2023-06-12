@@ -15,7 +15,7 @@ Write your API key to a `.env.local` file.
 
 ```sh
 # replace `XXX` with your API key
-echo 'VF_DM_API_URL=XXX` > .env.local
+echo 'VF_DM_API_KEY=XXX` > .env.local
 ```
 
 ## Run Dev Server
