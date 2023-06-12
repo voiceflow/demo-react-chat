@@ -20,6 +20,10 @@ echo 'VF_DM_API_URL=XXX` > .env.local
 
 ## Run Dev Server
 
+The demo app will be available locally at http://127.0.0.1:3006.
+
 ```sh
 yarn dev
 ```
+
+<img width="442" alt="Screenshot 2023-06-12 at 3 53 10 AM" src="https://github.com/voiceflow/demo-react-chat/assets/3784470/417199c3-317f-4722-9b5f-e27fff78d6e8">
