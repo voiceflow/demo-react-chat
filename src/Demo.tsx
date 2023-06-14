@@ -1,22 +1,17 @@
-import { Chat, ChatWindow, Launcher, SessionStatus, SystemResponse, TurnType, UserResponse, useRuntime } from '@voiceflow/react-chat';
-import { useEffect, useState } from 'react';
+import 'react-calendar/dist/Calendar.css';
+
+import { Chat, ChatWindow, Launcher, Message, SessionStatus, SystemResponse, TurnType, UserResponse, useRuntime } from '@voiceflow/react-chat';
+import { useState } from 'react';
+import Calendar from 'react-calendar';
 import { match } from 'ts-pattern';
 
 const IMAGE = 'https://picsum.photos/seed/1/200/300';
 const AVATAR = 'https://picsum.photos/seed/1/80/80';
 
-const CUSTOM_MESSAGE_TYPE = 'calendar';
-
-const Calendar: React.FC<{ message: any }> = ({ message }) => (
-  <div
-    style={{
-      border: '1px solid #ddd',
-      padding: '.5rem',
-    }}
-  >
-    MY CUSTOM CALENDAR: {JSON.stringify(message)}
-  </div>
-);
+enum CustomMessage {
+  CALENDAR = 'custom_calendar',
+  VIDEO = 'custom_video',
+}
 
 export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -24,17 +19,37 @@ export const Demo: React.FC = () => {
   const runtime = useRuntime({
     verify: { authorization: import.meta.env.VF_DM_API_KEY },
     session: { userID: `anonymous-${Math.random()}` },
-  });
+    traces: [
+      {
+        canHandle: ({ type }) => type === 'account_info',
+        handle: ({ context }, trace) => {
+          const { status, balance, created_at } = JSON.parse(trace.payload);
 
-  useEffect(() => {
-    runtime.register({
-      canHandle: ({ type }) => type === 'hello',
-      handle: ({ context }, trace) => {
-        context.messages.push({ type: CUSTOM_MESSAGE_TYPE, payload: JSON.parse(trace.payload) } as any);
-        return context;
+          context.messages.push({
+            type: 'text',
+            text: `You have a ${status} account with ${balance} in your balance. Your account was created on ${new Date(
+              created_at
+            ).toLocaleDateString()}`,
+          });
+          return context;
+        },
       },
-    });
-  }, []);
+      {
+        canHandle: ({ type }) => type === 'calendar',
+        handle: ({ context }, trace) => {
+          context.messages.push({ type: CustomMessage.CALENDAR, payload: JSON.parse(trace.payload) });
+          return context;
+        },
+      },
+      {
+        canHandle: ({ type }) => type === 'video',
+        handle: ({ context }, trace) => {
+          context.messages.push({ type: CustomMessage.VIDEO, payload: trace.payload });
+          return context;
+        },
+      },
+    ],
+  });
 
   const handleLaunch = async () => {
     setOpen(true);
@@ -91,26 +106,32 @@ export const Demo: React.FC = () => {
         >
           {runtime.session.turns.map((turn, turnIndex) =>
             match(turn)
-              .with({ type: TurnType.USER }, ({ id, type: _, ...props }) => <UserResponse {...props} key={id} />)
-              .with({ type: TurnType.SYSTEM }, ({ id, type: _, ...props }) => {
-                return (
-                  <SystemResponse
-                    {...props}
-                    key={id}
-                    Message={(props) =>
-                      match(props)
-                        .with({ message: { type: CUSTOM_MESSAGE_TYPE as any } }, () => {
-                          return <Calendar message={props.message} />;
-                        })
-                        .otherwise(() => {
-                          return <SystemResponse.SystemMessage {...props} />;
-                        })
-                    }
-                    avatar={AVATAR}
-                    isLast={turnIndex === runtime.session.turns.length - 1}
-                  />
-                );
-              })
+              .with({ type: TurnType.USER }, ({ id, type: _, ...rest }) => <UserResponse {...rest} key={id} />)
+              .with({ type: TurnType.SYSTEM }, ({ id, type: _, ...rest }) => (
+                <SystemResponse
+                  {...rest}
+                  key={id}
+                  Message={({ message, ...props }) =>
+                    match(message)
+                      .with({ type: CustomMessage.CALENDAR }, ({ payload: { today } }) => (
+                        <SystemResponse.SystemMessage {...props}>
+                          <Message from="system">
+                            <Calendar value={new Date(today)} />
+                          </Message>
+                        </SystemResponse.SystemMessage>
+                      ))
+                      .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => (
+                        <video controls style={{ paddingTop: 8, paddingBottom: 8 }}>
+                          <source src={url} type="video/mp4" />
+                          <track kind="captions" />
+                        </video>
+                      ))
+                      .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
+                  }
+                  avatar={AVATAR}
+                  isLast={turnIndex === runtime.session.turns.length - 1}
+                />
+              ))
               .exhaustive()
           )}
           {runtime.indicator && <SystemResponse.Indicator avatar={AVATAR} />}

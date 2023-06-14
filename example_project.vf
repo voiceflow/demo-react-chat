@@ -1,0 +1,1416 @@
+{
+  "_version": "1.2",
+  "project": {
+    "_id": "6489021234f66300070f647b",
+    "name": "Custom Action Demo",
+    "teamID": "NyEPoVenxR",
+    "devVersion": "64890212ed237e5214bba2ff",
+    "platform": "webchat",
+    "type": "chat",
+    "platformData": {
+      "invocationName": "template project general"
+    },
+    "members": [],
+    "linkType": "STRAIGHT",
+    "image": "",
+    "customThemes": [],
+    "apiPrivacy": "public",
+    "aiAssistSettings": {
+      "aiPlayground": true
+    },
+    "_version": 1.2,
+    "updatedAt": "2023-06-14T00:19:38.782Z",
+    "updatedBy": 10585,
+    "creatorID": 10585,
+    "prototype": {
+      "nlp": {
+        "appID": "6f12337a-d0f0-405c-9c53-34fdee7ee98d",
+        "resourceID": "cmbgnbak:https://westus.api.cognitive.microsoft.com/",
+        "type": "LUIS"
+      },
+      "lastTrainedTime": 1686701710273,
+      "trainedModel": {
+        "intents": [
+          {
+            "key": "m6vd39la",
+            "name": "book_calendar",
+            "inputs": [
+              {
+                "text": "schedule a meeting",
+                "slots": []
+              },
+              {
+                "text": "book a meeting",
+                "slots": []
+              },
+              {
+                "text": "test calendar",
+                "slots": []
+              },
+              {
+                "text": "test calendar custom action",
+                "slots": []
+              },
+              {
+                "text": "calendar demo",
+                "slots": []
+              },
+              {
+                "text": "book an appointment",
+                "slots": []
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "5o2iw39qz",
+            "name": "check_account",
+            "inputs": [
+              {
+                "text": "What is the status of my account?",
+                "slots": []
+              },
+              {
+                "text": "Can I check my account?",
+                "slots": []
+              },
+              {
+                "text": "I want to check my account",
+                "slots": []
+              },
+              {
+                "text": "Can I see my account information?",
+                "slots": []
+              },
+              {
+                "text": "What is my account status?",
+                "slots": []
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "VF.HELP",
+            "name": "VF.HELP",
+            "inputs": [
+              {
+                "text": "help"
+              },
+              {
+                "text": "help me"
+              },
+              {
+                "text": "i need help"
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "ef2z239t0",
+            "name": "faq",
+            "inputs": [
+              {
+                "text": "what services do you offer",
+                "slots": []
+              },
+              {
+                "text": "what kind of services do you provide",
+                "slots": []
+              },
+              {
+                "text": "what do you offer",
+                "slots": []
+              },
+              {
+                "text": "give me a list of services you provide",
+                "slots": []
+              },
+              {
+                "text": "what all services do you offer",
+                "slots": []
+              },
+              {
+                "text": "what all services are available",
+                "slots": []
+              }
+            ],
+            "slots": []
+          }
+        ],
+        "slots": []
+      }
+    },
+    "createdAt": "2023-06-13T23:56:02.000Z"
+  },
+  "version": {
+    "_id": "64890212ed237e5214bba2ff",
+    "variables": [
+      "sessions",
+      "user_id",
+      "timestamp",
+      "platform",
+      "locale",
+      "test_message",
+      "recommended_coffee",
+      "test_number"
+    ],
+    "platformData": {
+      "slots": [],
+      "intents": [
+        {
+          "key": "m6vd39la",
+          "name": "book_calendar",
+          "inputs": [
+            {
+              "text": "schedule a meeting",
+              "slots": []
+            },
+            {
+              "text": "book a meeting",
+              "slots": []
+            },
+            {
+              "text": "test calendar",
+              "slots": []
+            },
+            {
+              "text": "test calendar custom action",
+              "slots": []
+            },
+            {
+              "text": "calendar demo",
+              "slots": []
+            },
+            {
+              "text": "book an appointment",
+              "slots": []
+            }
+          ],
+          "slots": []
+        },
+        {
+          "key": "5o2iw39qz",
+          "name": "check_account",
+          "inputs": [
+            {
+              "text": "What is the status of my account?",
+              "slots": []
+            },
+            {
+              "text": "Can I check my account?",
+              "slots": []
+            },
+            {
+              "text": "I want to check my account",
+              "slots": []
+            },
+            {
+              "text": "Can I see my account information?",
+              "slots": []
+            },
+            {
+              "text": "What is my account status?",
+              "slots": []
+            }
+          ],
+          "slots": []
+        },
+        {
+          "key": "VF.HELP",
+          "name": "VF.HELP",
+          "inputs": [],
+          "slots": []
+        },
+        {
+          "key": "ef2z239t0",
+          "name": "faq",
+          "inputs": [
+            {
+              "text": "what services do you offer",
+              "slots": []
+            },
+            {
+              "text": "what kind of services do you provide",
+              "slots": []
+            },
+            {
+              "text": "what do you offer",
+              "slots": []
+            },
+            {
+              "text": "give me a list of services you provide",
+              "slots": []
+            },
+            {
+              "text": "what all services do you offer",
+              "slots": []
+            },
+            {
+              "text": "what all services are available",
+              "slots": []
+            }
+          ],
+          "slots": []
+        }
+      ],
+      "settings": {
+        "restart": true,
+        "repeat": 100,
+        "locales": [
+          "en-US"
+        ],
+        "globalNoMatch": {
+          "type": "static",
+          "prompt": {
+            "id": "cli96kttc00xd3b777rclbb0n",
+            "content": [
+              {
+                "children": [
+                  {
+                    "text": "Sorry, I can only answer questions our services and your account or help you to book an appointment."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "publishing": {
+        "avatar": "https://cdn.voiceflow.com/assets/logo.png",
+        "color": "#2E7FF1",
+        "description": "Our virtual assistant is here to help you.",
+        "image": "https://cdn.voiceflow.com/assets/logo.png",
+        "persistence": "localStorage",
+        "position": "right",
+        "spacing": {
+          "side": 24,
+          "bottom": 24
+        },
+        "title": "Custom Action Demo",
+        "watermark": true,
+        "feedback": false
+      },
+      "platform": "webchat"
+    },
+    "_version": 4.02,
+    "name": "Initial Version",
+    "projectID": "6489021234f66300070f647b",
+    "manualSave": false,
+    "autoSaveFromRestore": true,
+    "topics": [
+      {
+        "sourceID": "64890212ed237e5214bba303",
+        "type": "DIAGRAM"
+      }
+    ],
+    "components": [
+      {
+        "type": "DIAGRAM",
+        "sourceID": "64890212ed237e5214bba307"
+      }
+    ],
+    "rootDiagramID": "64890212ed237e5214bba303",
+    "domains": [
+      {
+        "id": "cla06iyr900b206pkh8d4ap8n",
+        "name": "Home",
+        "live": true,
+        "topicIDs": [
+          "64890212ed237e5214bba303",
+          "648902416a5aac00075511ff",
+          "648902456a5aac0007551200",
+          "648902556a5aac0007551201"
+        ],
+        "rootDiagramID": "64890212ed237e5214bba303",
+        "updatedAt": "2023-06-14T00:19:45.943Z",
+        "updatedBy": 10585
+      }
+    ],
+    "canvasTemplates": [
+      {
+        "id": "sg9zy34i0",
+        "name": "Basic Conversation Path",
+        "color": "#5b9fd7",
+        "nodeIDs": [
+          "643872d482cf9d2273b905df",
+          "643872d482cf9d2273b905e1",
+          "643872d482cf9d2273b905e3"
+        ]
+      },
+      {
+        "id": "5bgq3341p",
+        "name": "Save Information",
+        "color": "#000000",
+        "nodeIDs": [
+          "6438784f82cf9d2273b90dd4",
+          "6438784f82cf9d2273b90dd6",
+          "6438784f82cf9d2273b90dd8",
+          "6438784f82cf9d2273b90dda"
+        ]
+      },
+      {
+        "id": "byav33785",
+        "name": "API Call Example",
+        "color": null,
+        "nodeIDs": [
+          "645d718f83103cca7a3cecc1",
+          "645d718f83103cca7a3cecc3",
+          "645d718f83103cca7a3cecc5",
+          "645d718f83103cca7a3cecc7"
+        ]
+      }
+    ],
+    "creatorID": 10585,
+    "templateDiagramID": "64890212ed237e5214bba301",
+    "prototype": {
+      "type": "chat",
+      "data": {
+        "name": "Custom Action Demo",
+        "locales": [
+          "en-US"
+        ]
+      },
+      "model": {
+        "intents": [
+          {
+            "key": "m6vd39la",
+            "name": "book_calendar",
+            "inputs": [
+              {
+                "text": "schedule a meeting",
+                "slots": []
+              },
+              {
+                "text": "book a meeting",
+                "slots": []
+              },
+              {
+                "text": "test calendar",
+                "slots": []
+              },
+              {
+                "text": "test calendar custom action",
+                "slots": []
+              },
+              {
+                "text": "calendar demo",
+                "slots": []
+              },
+              {
+                "text": "book an appointment",
+                "slots": []
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "5o2iw39qz",
+            "name": "check_account",
+            "inputs": [
+              {
+                "text": "What is the status of my account?",
+                "slots": []
+              },
+              {
+                "text": "Can I check my account?",
+                "slots": []
+              },
+              {
+                "text": "I want to check my account",
+                "slots": []
+              },
+              {
+                "text": "Can I see my account information?",
+                "slots": []
+              },
+              {
+                "text": "What is my account status?",
+                "slots": []
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "VF.HELP",
+            "name": "VF.HELP",
+            "inputs": [
+              {
+                "text": "help"
+              },
+              {
+                "text": "help me"
+              },
+              {
+                "text": "i need help"
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "ef2z239t0",
+            "name": "faq",
+            "inputs": [
+              {
+                "text": "what services do you offer",
+                "slots": []
+              },
+              {
+                "text": "what kind of services do you provide",
+                "slots": []
+              },
+              {
+                "text": "what do you offer",
+                "slots": []
+              },
+              {
+                "text": "give me a list of services you provide",
+                "slots": []
+              },
+              {
+                "text": "what all services do you offer",
+                "slots": []
+              },
+              {
+                "text": "what all services are available",
+                "slots": []
+              }
+            ],
+            "slots": []
+          }
+        ],
+        "slots": []
+      },
+      "context": {
+        "stack": [
+          {
+            "programID": "64890212ed237e5214bba303",
+            "storage": {},
+            "variables": {}
+          }
+        ],
+        "variables": {}
+      },
+      "surveyorContext": {
+        "slotsMap": {},
+        "extraSlots": [],
+        "extraIntents": [],
+        "usedIntentsSet": [
+          "VF.HELP",
+          "ef2z239t0",
+          "m6vd39la",
+          "5o2iw39qz"
+        ],
+        "platform": "webchat",
+        "goToIntentsSet": [],
+        "products": {},
+        "interfaces": [],
+        "permissions": [],
+        "usedCustomBlocks": [],
+        "usedEventsSet": []
+      },
+      "settings": {},
+      "platform": "webchat"
+    }
+  },
+  "diagrams": {
+    "64890212ed237e5214bba303": {
+      "_id": "64890212ed237e5214bba303",
+      "offsetX": 660.3784532606145,
+      "offsetY": 781.3489202677721,
+      "zoom": 100,
+      "variables": [],
+      "name": "ROOT",
+      "versionID": "64890212ed237e5214bba2ff",
+      "creatorID": 10585,
+      "modified": 1686700562,
+      "intentStepIDs": [],
+      "type": "TOPIC",
+      "menuNodeIDs": [],
+      "menuItems": [
+        {
+          "type": "NODE",
+          "sourceID": "start00000000000000000000"
+        }
+      ],
+      "nodes": {
+        "start00000000000000000000": {
+          "nodeID": "start00000000000000000000",
+          "type": "start",
+          "coords": [
+            -125.47306657576806,
+            -726.6861503347151
+          ],
+          "data": {
+            "name": "Start",
+            "color": "#56b365",
+            "steps": [
+              "647de9d45aa2408bc3cfd991"
+            ],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "646187c35b0afc227e84c8e0",
+                  "id": "6032afcf359e8c14c06c0319",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -60.84,
+                          -704.69
+                        ]
+                      },
+                      {
+                        "point": [
+                          15.35,
+                          -702.7
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "label": "Start"
+          }
+        },
+        "646187c35b0afc227e84c8e0": {
+          "type": "block",
+          "data": {
+            "name": "Welcome",
+            "color": "",
+            "steps": [
+              "646187c35b0afc227e84c8f8",
+              "648904096b7bd27de5defbbe"
+            ]
+          },
+          "nodeID": "646187c35b0afc227e84c8e0",
+          "coords": [
+            180.3502216607124,
+            -729.7007454575531
+          ]
+        },
+        "646187c35b0afc227e84c8f8": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "73r23sar",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Welcome to the voiceflow booking service, what can I help you with today?"
+                      }
+                    ]
+                  },
+                  {
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "children": [
+                      {
+                        "text": "You could ask to book an appointment, check your account or anything about the services we offer!"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "646187c35b0afc227e84c8f9",
+                  "data": {}
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "646187c35b0afc227e84c8f8"
+        },
+        "647de9d45aa2408bc3cfd991": {
+          "type": "command",
+          "data": {
+            "name": "Deprecated Block",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "nodeID": "647de9d45aa2408bc3cfd991"
+        },
+        "648904096b7bd27de5defbbe": {
+          "type": "interaction",
+          "data": {
+            "name": "Choice",
+            "choices": [],
+            "intentScope": "GLOBAL",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "else": {
+                  "type": "else",
+                  "target": null,
+                  "id": "648904096b7bd27de5defbc0"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648904096b7bd27de5defbbe"
+        }
+      }
+    },
+    "64890212ed237e5214bba307": {
+      "_id": "64890212ed237e5214bba307",
+      "name": "Continue Conversation",
+      "type": "COMPONENT",
+      "zoom": 100,
+      "offsetX": 272,
+      "offsetY": 104,
+      "modified": 1686700562,
+      "variables": [],
+      "menuItems": [],
+      "creatorID": 10585,
+      "versionID": "64890212ed237e5214bba2ff",
+      "nodes": {
+        "647b946344f7392360f9146c": {
+          "type": "start",
+          "nodeID": "647b946344f7392360f9146c",
+          "coords": [
+            360,
+            120
+          ],
+          "data": {
+            "name": "Continue",
+            "color": "#43494E",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "id": "647b946344f7392360f9146d",
+                  "type": "next",
+                  "target": "6489035f6b7bd27de5defb66",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          440,
+                          142
+                        ]
+                      },
+                      {
+                        "point": [
+                          464,
+                          142
+                        ]
+                      },
+                      {
+                        "point": [
+                          464,
+                          178.7
+                        ]
+                      },
+                      {
+                        "point": [
+                          367.17,
+                          178.7
+                        ]
+                      },
+                      {
+                        "point": [
+                          367.17,
+                          215.4
+                        ],
+                        "toTop": true,
+                        "allowedToTop": true
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "steps": []
+          }
+        },
+        "6489035f6b7bd27de5defb64": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "cp24639tm",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Thanks for choosing Voiceflow!"
+                      }
+                    ]
+                  },
+                  {
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "children": [
+                      {
+                        "text": "What else can I help you with?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "6489035f6b7bd27de5defb65"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "6489035f6b7bd27de5defb64"
+        },
+        "6489035f6b7bd27de5defb66": {
+          "type": "block",
+          "data": {
+            "name": "What Next?",
+            "steps": [
+              "6489035f6b7bd27de5defb64",
+              "648907a96b7bd27de5defd15"
+            ],
+            "color": ""
+          },
+          "nodeID": "6489035f6b7bd27de5defb66",
+          "coords": [
+            367.17176464239935,
+            215.3984410256298
+          ]
+        },
+        "648907a96b7bd27de5defd15": {
+          "type": "interaction",
+          "data": {
+            "name": "Choice",
+            "choices": [],
+            "intentScope": "GLOBAL",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "else": {
+                  "type": "",
+                  "target": null,
+                  "id": "648907a96b7bd27de5defd17"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648907a96b7bd27de5defd15"
+        }
+      }
+    },
+    "648902416a5aac00075511ff": {
+      "_id": "648902416a5aac00075511ff",
+      "name": "FAQ",
+      "type": "TOPIC",
+      "zoom": 100,
+      "nodes": {
+        "64890241d98e65000721c6d9": {
+          "type": "block",
+          "nodeID": "64890241d98e65000721c6d9",
+          "coords": [
+            360,
+            120
+          ],
+          "data": {
+            "name": "",
+            "color": "",
+            "steps": [
+              "64890241d98e65000721c6d8"
+            ]
+          }
+        },
+        "64890241d98e65000721c6d8": {
+          "type": "intent",
+          "nodeID": "64890241d98e65000721c6d8",
+          "data": {
+            "intent": "VF.HELP",
+            "mappings": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "id": "64890241d98e65000721c6da",
+                  "type": "next",
+                  "target": "648904896b7bd27de5defc09",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          458.53,
+                          142
+                        ]
+                      },
+                      {
+                        "point": [
+                          588.5,
+                          143.75
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "availability": "GLOBAL",
+            "name": ""
+          }
+        },
+        "648904896b7bd27de5defc09": {
+          "type": "block",
+          "data": {
+            "name": "Learn",
+            "color": "",
+            "steps": [
+              "648904896b7bd27de5defc0b",
+              "648904896b7bd27de5defc0e",
+              "648904896b7bd27de5defc11"
+            ]
+          },
+          "nodeID": "648904896b7bd27de5defc09",
+          "coords": [
+            753.4999999999999,
+            116.74996948242185
+          ]
+        },
+        "648904896b7bd27de5defc0b": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "hfw939ug",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Try watching this informative video on all the services we offer."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "648904896b7bd27de5defc0e",
+                  "id": "648904896b7bd27de5defc0c"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648904896b7bd27de5defc0b"
+        },
+        "648904896b7bd27de5defc0e": {
+          "type": "trace",
+          "data": {
+            "name": "video",
+            "_v": 1,
+            "paths": [
+              {
+                "label": "",
+                "isDefault": true
+              }
+            ],
+            "payload": {
+              "name": "video",
+              "body": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+              "isBlocking": false
+            },
+            "defaultPath": 0,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": [
+                {
+                  "type": "",
+                  "target": "648904896b7bd27de5defc11",
+                  "id": "648904896b7bd27de5defc0f"
+                }
+              ]
+            }
+          },
+          "nodeID": "648904896b7bd27de5defc0e"
+        },
+        "648904896b7bd27de5defc11": {
+          "type": "component",
+          "data": {
+            "name": "",
+            "diagramID": "64890212ed237e5214bba307",
+            "variableMap": null,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "648904896b7bd27de5defc12"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648904896b7bd27de5defc11"
+        },
+        "648905e76b7bd27de5defc67": {
+          "type": "intent",
+          "data": {
+            "name": "",
+            "intent": "ef2z239t0",
+            "mappings": [],
+            "availability": "GLOBAL",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "648904896b7bd27de5defc09",
+                  "id": "648905e76b7bd27de5defc68",
+                  "data": {}
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648905e76b7bd27de5defc67"
+        },
+        "648905e76b7bd27de5defc69": {
+          "type": "block",
+          "data": {
+            "name": "",
+            "steps": [
+              "648905e76b7bd27de5defc67"
+            ]
+          },
+          "nodeID": "648905e76b7bd27de5defc69",
+          "coords": [
+            367.24999999999994,
+            39.250045776367166
+          ]
+        }
+      },
+      "offsetX": 0,
+      "offsetY": 0,
+      "modified": 1686700609,
+      "variables": [],
+      "menuItems": [
+        {
+          "type": "NODE",
+          "sourceID": "64890241d98e65000721c6d8"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648905e76b7bd27de5defc67"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648904896b7bd27de5defc11"
+        }
+      ],
+      "creatorID": 10585,
+      "versionID": "64890212ed237e5214bba2ff",
+      "intentStepIDs": [
+        "64890241d98e65000721c6d8"
+      ]
+    },
+    "648902456a5aac0007551200": {
+      "_id": "648902456a5aac0007551200",
+      "name": "Services",
+      "type": "TOPIC",
+      "zoom": 100,
+      "nodes": {
+        "64890245d98e65000721c6dc": {
+          "type": "block",
+          "nodeID": "64890245d98e65000721c6dc",
+          "coords": [
+            645,
+            12.5
+          ],
+          "data": {
+            "name": "",
+            "color": "",
+            "steps": [
+              "64890245d98e65000721c6db"
+            ]
+          }
+        },
+        "64890245d98e65000721c6db": {
+          "type": "intent",
+          "nodeID": "64890245d98e65000721c6db",
+          "data": {
+            "intent": "m6vd39la",
+            "mappings": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "id": "64890245d98e65000721c6dd",
+                  "type": "next",
+                  "target": "648902fa6b7bd27de5defad4",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          744.8,
+                          34.5
+                        ]
+                      },
+                      {
+                        "point": [
+                          842.3,
+                          35.13
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "availability": "GLOBAL",
+            "name": ""
+          }
+        },
+        "648902fa6b7bd27de5defad4": {
+          "type": "block",
+          "data": {
+            "name": "Book an Appointment",
+            "color": "",
+            "steps": [
+              "648902fa6b7bd27de5defae3",
+              "648902fa6b7bd27de5defae6",
+              "648903946b7bd27de5defb88"
+            ]
+          },
+          "nodeID": "648902fa6b7bd27de5defad4",
+          "coords": [
+            1007.3037618024243,
+            8.131240333111208
+          ]
+        },
+        "648902fa6b7bd27de5defae3": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "hfw939ug",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "When would you like to visit next?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "648902fa6b7bd27de5defae6",
+                  "id": "648902fa6b7bd27de5defae4"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648902fa6b7bd27de5defae3"
+        },
+        "648902fa6b7bd27de5defae6": {
+          "type": "trace",
+          "data": {
+            "name": "calendar",
+            "_v": 1,
+            "paths": [
+              {
+                "label": "",
+                "isDefault": true
+              }
+            ],
+            "payload": {
+              "name": "calendar",
+              "body": "{\n  \"today\": 1686696763871\n}",
+              "isBlocking": false
+            },
+            "defaultPath": 0,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": [
+                {
+                  "type": "",
+                  "target": null,
+                  "id": "648902fa6b7bd27de5defae7"
+                }
+              ]
+            }
+          },
+          "nodeID": "648902fa6b7bd27de5defae6"
+        },
+        "648903946b7bd27de5defb88": {
+          "type": "component",
+          "data": {
+            "name": "",
+            "diagramID": "64890212ed237e5214bba307",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "648903946b7bd27de5defb89"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648903946b7bd27de5defb88"
+        }
+      },
+      "offsetX": 0,
+      "offsetY": 0,
+      "modified": 1686700613,
+      "variables": [],
+      "menuItems": [
+        {
+          "type": "NODE",
+          "sourceID": "64890245d98e65000721c6db"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648903946b7bd27de5defb88"
+        }
+      ],
+      "creatorID": 10585,
+      "versionID": "64890212ed237e5214bba2ff",
+      "intentStepIDs": [
+        "64890245d98e65000721c6db"
+      ]
+    },
+    "648902556a5aac0007551201": {
+      "_id": "648902556a5aac0007551201",
+      "name": "Account",
+      "type": "TOPIC",
+      "zoom": 100,
+      "nodes": {
+        "64890255d98e65000721c6df": {
+          "type": "block",
+          "nodeID": "64890255d98e65000721c6df",
+          "coords": [
+            360,
+            120
+          ],
+          "data": {
+            "name": "",
+            "color": "",
+            "steps": [
+              "64890255d98e65000721c6de"
+            ]
+          }
+        },
+        "64890255d98e65000721c6de": {
+          "type": "intent",
+          "nodeID": "64890255d98e65000721c6de",
+          "data": {
+            "intent": "5o2iw39qz",
+            "mappings": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "id": "64890255d98e65000721c6e0",
+                  "type": "next",
+                  "target": "648904786b7bd27de5defbe4",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          459.88,
+                          142
+                        ]
+                      },
+                      {
+                        "point": [
+                          593.5,
+                          143.75
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "availability": "GLOBAL",
+            "name": ""
+          }
+        },
+        "648904786b7bd27de5defbe4": {
+          "type": "block",
+          "data": {
+            "name": "Account Information",
+            "color": "",
+            "steps": [
+              "648904786b7bd27de5defbe6",
+              "648904786b7bd27de5defbe9",
+              "648904786b7bd27de5defbec"
+            ]
+          },
+          "nodeID": "648904786b7bd27de5defbe4",
+          "coords": [
+            758.5,
+            116.74996948242182
+          ]
+        },
+        "648904786b7bd27de5defbe6": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "hfw939ug",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Here's the information we have about your account:"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "648904786b7bd27de5defbe9",
+                  "id": "648904786b7bd27de5defbe7"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648904786b7bd27de5defbe6"
+        },
+        "648904786b7bd27de5defbe9": {
+          "type": "trace",
+          "data": {
+            "name": "account_info",
+            "_v": 1,
+            "paths": [
+              {
+                "label": "",
+                "isDefault": true
+              }
+            ],
+            "payload": {
+              "name": "account_info",
+              "body": "{\n  \"status\": \"paid\",\n  \"balance\": \"$52.17\",\n  \"created_at\": 1686696763871\n}",
+              "isBlocking": false
+            },
+            "defaultPath": 0,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": [
+                {
+                  "type": "",
+                  "target": "648904786b7bd27de5defbec",
+                  "id": "648904786b7bd27de5defbea"
+                }
+              ]
+            }
+          },
+          "nodeID": "648904786b7bd27de5defbe9"
+        },
+        "648904786b7bd27de5defbec": {
+          "type": "component",
+          "data": {
+            "name": "",
+            "diagramID": "64890212ed237e5214bba307",
+            "variableMap": null,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "648904786b7bd27de5defbed"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648904786b7bd27de5defbec"
+        }
+      },
+      "offsetX": 0,
+      "offsetY": 0,
+      "modified": 1686700629,
+      "variables": [],
+      "menuItems": [
+        {
+          "type": "NODE",
+          "sourceID": "64890255d98e65000721c6de"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648904786b7bd27de5defbec"
+        }
+      ],
+      "creatorID": 10585,
+      "versionID": "64890212ed237e5214bba2ff",
+      "intentStepIDs": [
+        "64890255d98e65000721c6de"
+      ]
+    }
+  },
+  "variableStates": []
+}
