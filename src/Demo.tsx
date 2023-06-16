@@ -1,6 +1,17 @@
 import 'react-calendar/dist/Calendar.css';
 
-import { Chat, ChatWindow, Launcher, Message, SessionStatus, SystemResponse, TurnType, UserResponse, useRuntime } from '@voiceflow/react-chat';
+import {
+  Chat,
+  ChatWindow,
+  Launcher,
+  Message,
+  RuntimeAPIProvider,
+  SessionStatus,
+  SystemResponse,
+  TurnType,
+  UserResponse,
+  useRuntime,
+} from '@voiceflow/react-chat';
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import { match } from 'ts-pattern';
@@ -90,52 +101,54 @@ export const Demo: React.FC = () => {
       }}
     >
       <ChatWindow.Container>
-        <Chat
-          title="My Assistant"
-          description="welcome to my assistant"
-          image={IMAGE}
-          avatar={AVATAR}
-          withWatermark
-          startTime={runtime.session.startTime}
-          hasEnded={runtime.isStatus(SessionStatus.ENDED)}
-          isLoading={!runtime.session.turns.length}
-          onStart={runtime.launch}
-          onEnd={handleEnd}
-          onSend={runtime.reply}
-          onMinimize={handleEnd}
-        >
-          {runtime.session.turns.map((turn, turnIndex) =>
-            match(turn)
-              .with({ type: TurnType.USER }, ({ id, type: _, ...rest }) => <UserResponse {...rest} key={id} />)
-              .with({ type: TurnType.SYSTEM }, ({ id, type: _, ...rest }) => (
-                <SystemResponse
-                  {...rest}
-                  key={id}
-                  Message={({ message, ...props }) =>
-                    match(message)
-                      .with({ type: CustomMessage.CALENDAR }, ({ payload: { today } }) => (
-                        <SystemResponse.SystemMessage {...props}>
-                          <Message from="system">
-                            <Calendar value={new Date(today)} />
-                          </Message>
-                        </SystemResponse.SystemMessage>
-                      ))
-                      .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => (
-                        <video controls style={{ paddingTop: 8, paddingBottom: 8 }}>
-                          <source src={url} type="video/mp4" />
-                          <track kind="captions" />
-                        </video>
-                      ))
-                      .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
-                  }
-                  avatar={AVATAR}
-                  isLast={turnIndex === runtime.session.turns.length - 1}
-                />
-              ))
-              .exhaustive()
-          )}
-          {runtime.indicator && <SystemResponse.Indicator avatar={AVATAR} />}
-        </Chat>
+        <RuntimeAPIProvider {...runtime}>
+          <Chat
+            title="My Assistant"
+            description="welcome to my assistant"
+            image={IMAGE}
+            avatar={AVATAR}
+            withWatermark
+            startTime={runtime.session.startTime}
+            hasEnded={runtime.isStatus(SessionStatus.ENDED)}
+            isLoading={!runtime.session.turns.length}
+            onStart={runtime.launch}
+            onEnd={handleEnd}
+            onSend={runtime.reply}
+            onMinimize={handleEnd}
+          >
+            {runtime.session.turns.map((turn, turnIndex) =>
+              match(turn)
+                .with({ type: TurnType.USER }, ({ id, type: _, ...rest }) => <UserResponse {...rest} key={id} />)
+                .with({ type: TurnType.SYSTEM }, ({ id, type: _, ...rest }) => (
+                  <SystemResponse
+                    {...rest}
+                    key={id}
+                    Message={({ message, ...props }) =>
+                      match(message)
+                        .with({ type: CustomMessage.CALENDAR }, ({ payload: { today } }) => (
+                          <SystemResponse.SystemMessage {...props}>
+                            <Message from="system">
+                              <Calendar value={new Date(today)} />
+                            </Message>
+                          </SystemResponse.SystemMessage>
+                        ))
+                        .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => (
+                          <video controls style={{ paddingTop: 8, paddingBottom: 8 }}>
+                            <source src={url} type="video/mp4" />
+                            <track kind="captions" />
+                          </video>
+                        ))
+                        .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
+                    }
+                    avatar={AVATAR}
+                    isLast={turnIndex === runtime.session.turns.length - 1}
+                  />
+                ))
+                .exhaustive()
+            )}
+            {runtime.indicator && <SystemResponse.Indicator avatar={AVATAR} />}
+          </Chat>
+        </RuntimeAPIProvider>
       </ChatWindow.Container>
     </div>
   );
