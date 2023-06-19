@@ -60,3 +60,12 @@ The `created_at` date is rendered with the locale-appropriate date format.
 
 This will re-use our existing text messages to display a message with the user's account information.
 The `created_at` date is rendered with the locale-appropriate date format.
+
+### `talk_to_agent`
+
+- "I want to talk to a human"
+- "Please connect me to a human"
+
+This will switch the conversation into a mode that emulates talking with a live agent.
+New messages will skip the Voiceflow logic and be sent directly to the agent.
+You can also end the live conversation and return to talking with the Voiceflow bot.
