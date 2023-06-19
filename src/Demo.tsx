@@ -4,7 +4,6 @@ import {
   Chat,
   ChatWindow,
   Launcher,
-  Message,
   RuntimeAPIProvider,
   SessionStatus,
   SystemResponse,
@@ -13,16 +12,20 @@ import {
   useRuntime,
 } from '@voiceflow/react-chat';
 import { useState } from 'react';
-import Calendar from 'react-calendar';
 import { match } from 'ts-pattern';
+
+import { LiveAgentStatus } from './components/LiveAgentStatus.component';
+import { CustomMessage } from './custom-message.enum';
+import { CalendarMessage } from './messages/CalendarMessage.component';
+import { VideoMessage } from './messages/VideoMessage.component';
+import { AccountInfoTrace } from './traces/account-info.trace';
+import { CalendarTrace } from './traces/calendar.trace';
+import { TalkToAgentTrace } from './traces/talk-to-agent.trace';
+import { VideoTrace } from './traces/video.trace';
+import { useLiveAgent } from './use-live-agent.hook';
 
 const IMAGE = 'https://picsum.photos/seed/1/200/300';
 const AVATAR = 'https://picsum.photos/seed/1/80/80';
-
-enum CustomMessage {
-  CALENDAR = 'custom_calendar',
-  VIDEO = 'custom_video',
-}
 
 export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -30,37 +33,9 @@ export const Demo: React.FC = () => {
   const runtime = useRuntime({
     verify: { authorization: import.meta.env.VF_DM_API_KEY },
     session: { userID: `anonymous-${Math.random()}` },
-    traces: [
-      {
-        canHandle: ({ type }) => type === 'account_info',
-        handle: ({ context }, trace) => {
-          const { status, balance, created_at } = JSON.parse(trace.payload);
-
-          context.messages.push({
-            type: 'text',
-            text: `You have a ${status} account with ${balance} in your balance. Your account was created on ${new Date(
-              created_at
-            ).toLocaleDateString()}`,
-          });
-          return context;
-        },
-      },
-      {
-        canHandle: ({ type }) => type === 'calendar',
-        handle: ({ context }, trace) => {
-          context.messages.push({ type: CustomMessage.CALENDAR, payload: JSON.parse(trace.payload) });
-          return context;
-        },
-      },
-      {
-        canHandle: ({ type }) => type === 'video',
-        handle: ({ context }, trace) => {
-          context.messages.push({ type: CustomMessage.VIDEO, payload: trace.payload });
-          return context;
-        },
-      },
-    ],
+    traces: [AccountInfoTrace, CalendarTrace, VideoTrace, TalkToAgentTrace(() => liveAgent.talkToAgent())],
   });
+  const liveAgent = useLiveAgent(runtime);
 
   const handleLaunch = async () => {
     setOpen(true);
@@ -70,6 +45,14 @@ export const Demo: React.FC = () => {
   const handleEnd = () => {
     runtime.setStatus(SessionStatus.ENDED);
     setOpen(false);
+  };
+
+  const handleSend = (message: string) => {
+    if (liveAgent.isEnabled) {
+      liveAgent.sendUserReply(message);
+    } else {
+      runtime.reply(message);
+    }
   };
 
   if (!open) {
@@ -113,9 +96,10 @@ export const Demo: React.FC = () => {
             isLoading={!runtime.session.turns.length}
             onStart={runtime.launch}
             onEnd={handleEnd}
-            onSend={runtime.reply}
+            onSend={handleSend}
             onMinimize={handleEnd}
           >
+            {liveAgent.isEnabled && <LiveAgentStatus talkToRobot={liveAgent.talkToRobot} />}
             {runtime.session.turns.map((turn, turnIndex) =>
               match(turn)
                 .with({ type: TurnType.USER }, ({ id, type: _, ...rest }) => <UserResponse {...rest} key={id} />)
@@ -126,18 +110,13 @@ export const Demo: React.FC = () => {
                     Message={({ message, ...props }) =>
                       match(message)
                         .with({ type: CustomMessage.CALENDAR }, ({ payload: { today } }) => (
-                          <SystemResponse.SystemMessage {...props}>
-                            <Message from="system">
-                              <Calendar value={new Date(today)} />
-                            </Message>
-                          </SystemResponse.SystemMessage>
+                          <CalendarMessage
+                            {...props}
+                            value={new Date(today)}
+                            onChange={(date) => runtime.interact({ type: 'done', payload: date })}
+                          />
                         ))
-                        .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => (
-                          <video controls style={{ paddingTop: 8, paddingBottom: 8 }}>
-                            <source src={url} type="video/mp4" />
-                            <track kind="captions" />
-                          </video>
-                        ))
+                        .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => <VideoMessage url={url} />)
                         .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
                     }
                     avatar={AVATAR}

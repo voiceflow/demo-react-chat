@@ -1,10 +1,10 @@
 {
   "_version": "1.2",
   "project": {
-    "_id": "6489021234f66300070f647b",
+    "_id": "64890a7a34f66300070f6489",
     "name": "Custom Action Demo",
     "teamID": "NyEPoVenxR",
-    "devVersion": "64890212ed237e5214bba2ff",
+    "devVersion": "64890a7a34f66300070f648a",
     "platform": "webchat",
     "type": "chat",
     "platformData": {
@@ -19,16 +19,17 @@
       "aiPlayground": true
     },
     "_version": 1.2,
-    "updatedAt": "2023-06-14T00:19:38.782Z",
+    "updatedAt": "2023-06-16T20:10:55.133Z",
     "updatedBy": 10585,
     "creatorID": 10585,
+    "privacy": "private",
     "prototype": {
       "nlp": {
-        "appID": "6f12337a-d0f0-405c-9c53-34fdee7ee98d",
-        "resourceID": "cmbgnbak:https://westus.api.cognitive.microsoft.com/",
+        "appID": "89eabd30-d38f-4d3e-a90b-0426676bc10e",
+        "resourceID": "pcbagggb:https://westus.api.cognitive.microsoft.com/",
         "type": "LUIS"
       },
-      "lastTrainedTime": 1686701710273,
+      "lastTrainedTime": 1686945610438,
       "trainedModel": {
         "intents": [
           {
@@ -135,15 +136,46 @@
               }
             ],
             "slots": []
+          },
+          {
+            "key": "60gy3iks",
+            "name": "talk_to_agent",
+            "inputs": [
+              {
+                "text": "I want to talk to a human",
+                "slots": []
+              },
+              {
+                "text": "I want to speak to an agent",
+                "slots": []
+              },
+              {
+                "text": "I'd like to talk to a real person",
+                "slots": []
+              },
+              {
+                "text": "I need to talk to someone right now",
+                "slots": []
+              },
+              {
+                "text": "I want to speak with a customer service representative",
+                "slots": []
+              },
+              {
+                "text": "I need to converse with a representative",
+                "slots": []
+              }
+            ],
+            "slots": []
           }
         ],
         "slots": []
       }
     },
-    "createdAt": "2023-06-13T23:56:02.000Z"
+    "createdAt": "2023-06-14T00:31:54.000Z"
   },
   "version": {
-    "_id": "64890212ed237e5214bba2ff",
+    "_id": "64890a7a34f66300070f648a",
     "variables": [
       "sessions",
       "user_id",
@@ -251,6 +283,37 @@
             }
           ],
           "slots": []
+        },
+        {
+          "key": "60gy3iks",
+          "name": "talk_to_agent",
+          "inputs": [
+            {
+              "text": "I want to talk to a human",
+              "slots": []
+            },
+            {
+              "text": "I want to speak to an agent",
+              "slots": []
+            },
+            {
+              "text": "I'd like to talk to a real person",
+              "slots": []
+            },
+            {
+              "text": "I need to talk to someone right now",
+              "slots": []
+            },
+            {
+              "text": "I want to speak with a customer service representative",
+              "slots": []
+            },
+            {
+              "text": "I need to converse with a representative",
+              "slots": []
+            }
+          ],
+          "slots": []
         }
       ],
       "settings": {
@@ -294,35 +357,35 @@
     },
     "_version": 4.02,
     "name": "Initial Version",
-    "projectID": "6489021234f66300070f647b",
+    "projectID": "64890a7a34f66300070f6489",
     "manualSave": false,
     "autoSaveFromRestore": true,
     "topics": [
       {
-        "sourceID": "64890212ed237e5214bba303",
+        "sourceID": "64890a7a34f66300070f648b",
         "type": "DIAGRAM"
       }
     ],
     "components": [
       {
         "type": "DIAGRAM",
-        "sourceID": "64890212ed237e5214bba307"
+        "sourceID": "64890a7a34f66300070f648c"
       }
     ],
-    "rootDiagramID": "64890212ed237e5214bba303",
+    "rootDiagramID": "64890a7a34f66300070f648b",
     "domains": [
       {
         "id": "cla06iyr900b206pkh8d4ap8n",
         "name": "Home",
         "live": true,
         "topicIDs": [
-          "64890212ed237e5214bba303",
-          "648902416a5aac00075511ff",
-          "648902456a5aac0007551200",
-          "648902556a5aac0007551201"
+          "64890a7a34f66300070f648b",
+          "64890a7a34f66300070f648d",
+          "64890a7a34f66300070f648e",
+          "64890a7a34f66300070f648f"
         ],
-        "rootDiagramID": "64890212ed237e5214bba303",
-        "updatedAt": "2023-06-14T00:19:45.943Z",
+        "rootDiagramID": "64890a7a34f66300070f648b",
+        "updatedAt": "2023-06-16T20:10:59.454Z",
         "updatedBy": 10585
       }
     ],
@@ -361,7 +424,6 @@
       }
     ],
     "creatorID": 10585,
-    "templateDiagramID": "64890212ed237e5214bba301",
     "prototype": {
       "type": "chat",
       "data": {
@@ -476,6 +538,37 @@
               }
             ],
             "slots": []
+          },
+          {
+            "key": "60gy3iks",
+            "name": "talk_to_agent",
+            "inputs": [
+              {
+                "text": "I want to talk to a human",
+                "slots": []
+              },
+              {
+                "text": "I want to speak to an agent",
+                "slots": []
+              },
+              {
+                "text": "I'd like to talk to a real person",
+                "slots": []
+              },
+              {
+                "text": "I need to talk to someone right now",
+                "slots": []
+              },
+              {
+                "text": "I want to speak with a customer service representative",
+                "slots": []
+              },
+              {
+                "text": "I need to converse with a representative",
+                "slots": []
+              }
+            ],
+            "slots": []
           }
         ],
         "slots": []
@@ -483,7 +576,7 @@
       "context": {
         "stack": [
           {
-            "programID": "64890212ed237e5214bba303",
+            "programID": "64890a7a34f66300070f648b",
             "storage": {},
             "variables": {}
           }
@@ -497,6 +590,7 @@
         "usedIntentsSet": [
           "VF.HELP",
           "ef2z239t0",
+          "60gy3iks",
           "m6vd39la",
           "5o2iw39qz"
         ],
@@ -505,22 +599,22 @@
         "products": {},
         "interfaces": [],
         "permissions": [],
-        "usedCustomBlocks": [],
         "usedEventsSet": []
       },
       "settings": {},
       "platform": "webchat"
-    }
+    },
+    "templateDiagramID": "64890212ed237e5214bba301"
   },
   "diagrams": {
-    "64890212ed237e5214bba303": {
-      "_id": "64890212ed237e5214bba303",
+    "64890a7a34f66300070f648b": {
+      "_id": "64890a7a34f66300070f648b",
       "offsetX": 660.3784532606145,
       "offsetY": 781.3489202677721,
       "zoom": 100,
       "variables": [],
       "name": "ROOT",
-      "versionID": "64890212ed237e5214bba2ff",
+      "versionID": "64890a7a34f66300070f648a",
       "creatorID": 10585,
       "modified": 1686700562,
       "intentStepIDs": [],
@@ -670,12 +764,16 @@
               "dynamic": []
             }
           },
-          "nodeID": "648904096b7bd27de5defbbe"
+          "nodeID": "648904096b7bd27de5defbbe",
+          "coords": [
+            0,
+            0
+          ]
         }
       }
     },
-    "64890212ed237e5214bba307": {
-      "_id": "64890212ed237e5214bba307",
+    "64890a7a34f66300070f648c": {
+      "_id": "64890a7a34f66300070f648c",
       "name": "Continue Conversation",
       "type": "COMPONENT",
       "zoom": 100,
@@ -685,7 +783,7 @@
       "variables": [],
       "menuItems": [],
       "creatorID": 10585,
-      "versionID": "64890212ed237e5214bba2ff",
+      "versionID": "64890a7a34f66300070f648a",
       "nodes": {
         "647b946344f7392360f9146c": {
           "type": "start",
@@ -832,11 +930,42 @@
         }
       }
     },
-    "648902416a5aac00075511ff": {
-      "_id": "648902416a5aac00075511ff",
+    "64890a7a34f66300070f648d": {
+      "_id": "64890a7a34f66300070f648d",
       "name": "FAQ",
       "type": "TOPIC",
       "zoom": 100,
+      "offsetX": 0,
+      "offsetY": 0,
+      "modified": 1686700609,
+      "variables": [],
+      "menuItems": [
+        {
+          "type": "NODE",
+          "sourceID": "64890241d98e65000721c6d8"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648905e76b7bd27de5defc67"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648904896b7bd27de5defc11"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648cbeee63d33f8c51024391"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "648cbf2e63d33f8c510243ab"
+        }
+      ],
+      "creatorID": 10585,
+      "versionID": "64890a7a34f66300070f648a",
+      "intentStepIDs": [
+        "64890241d98e65000721c6d8"
+      ],
       "nodes": {
         "64890241d98e65000721c6d9": {
           "type": "block",
@@ -975,7 +1104,7 @@
           "type": "component",
           "data": {
             "name": "",
-            "diagramID": "64890212ed237e5214bba307",
+            "diagramID": "64890a7a34f66300070f648c",
             "variableMap": null,
             "portsV2": {
               "byKey": {},
@@ -1026,37 +1155,183 @@
             367.24999999999994,
             39.250045776367166
           ]
+        },
+        "648cbeee63d33f8c51024391": {
+          "type": "intent",
+          "data": {
+            "name": "",
+            "intent": "60gy3iks",
+            "mappings": [],
+            "availability": "GLOBAL",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "648cbf1163d33f8c51024399",
+                  "id": "648cbeee63d33f8c51024392",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          494.66,
+                          559.25
+                        ]
+                      },
+                      {
+                        "point": [
+                          549.5,
+                          561.75
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648cbeee63d33f8c51024391"
+        },
+        "648cbeee63d33f8c51024393": {
+          "type": "block",
+          "data": {
+            "name": "",
+            "steps": [
+              "648cbeee63d33f8c51024391"
+            ]
+          },
+          "nodeID": "648cbeee63d33f8c51024393",
+          "coords": [
+            399.49999999999994,
+            537.2500610351562
+          ]
+        },
+        "648cbf1163d33f8c51024397": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "x9h53iko",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Transferring you to an agent now..."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "648cbf1163d33f8c51024398"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648cbf1163d33f8c51024397"
+        },
+        "648cbf1163d33f8c51024399": {
+          "type": "block",
+          "data": {
+            "name": "New Block 4",
+            "steps": [
+              "648cbf1163d33f8c51024397",
+              "648cbf1f63d33f8c510243a0",
+              "648cbf2e63d33f8c510243ab"
+            ]
+          },
+          "nodeID": "648cbf1163d33f8c51024399",
+          "coords": [
+            714.4999999999999,
+            534.7500610351562
+          ]
+        },
+        "648cbf1f63d33f8c510243a0": {
+          "type": "trace",
+          "data": {
+            "name": "talk_to_agent",
+            "_v": 1,
+            "paths": [
+              {
+                "label": "continue",
+                "isDefault": true
+              }
+            ],
+            "payload": {
+              "name": "talk_to_agent",
+              "body": "",
+              "isBlocking": true
+            },
+            "defaultPath": 0,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": [
+                {
+                  "type": "",
+                  "target": null,
+                  "id": "648cbf1f63d33f8c510243a1"
+                }
+              ]
+            }
+          },
+          "nodeID": "648cbf1f63d33f8c510243a0"
+        },
+        "648cbf2e63d33f8c510243ab": {
+          "type": "component",
+          "data": {
+            "name": "",
+            "diagramID": "64890a7a34f66300070f648c",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "648cbf2e63d33f8c510243ac"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648cbf2e63d33f8c510243ab"
         }
-      },
+      }
+    },
+    "64890a7a34f66300070f648e": {
+      "_id": "64890a7a34f66300070f648e",
+      "name": "Services",
+      "type": "TOPIC",
+      "zoom": 100,
       "offsetX": 0,
       "offsetY": 0,
-      "modified": 1686700609,
+      "modified": 1686700613,
       "variables": [],
       "menuItems": [
         {
           "type": "NODE",
-          "sourceID": "64890241d98e65000721c6d8"
+          "sourceID": "64890245d98e65000721c6db"
         },
         {
           "type": "NODE",
-          "sourceID": "648905e76b7bd27de5defc67"
-        },
-        {
-          "type": "NODE",
-          "sourceID": "648904896b7bd27de5defc11"
+          "sourceID": "648903946b7bd27de5defb88"
         }
       ],
       "creatorID": 10585,
-      "versionID": "64890212ed237e5214bba2ff",
+      "versionID": "64890a7a34f66300070f648a",
       "intentStepIDs": [
-        "64890241d98e65000721c6d8"
-      ]
-    },
-    "648902456a5aac0007551200": {
-      "_id": "648902456a5aac0007551200",
-      "name": "Services",
-      "type": "TOPIC",
-      "zoom": 100,
+        "64890245d98e65000721c6db"
+      ],
       "nodes": {
         "64890245d98e65000721c6dc": {
           "type": "block",
@@ -1117,8 +1392,7 @@
             "color": "",
             "steps": [
               "648902fa6b7bd27de5defae3",
-              "648902fa6b7bd27de5defae6",
-              "648903946b7bd27de5defb88"
+              "648902fa6b7bd27de5defae6"
             ]
           },
           "nodeID": "648902fa6b7bd27de5defad4",
@@ -1167,14 +1441,18 @@
             "_v": 1,
             "paths": [
               {
-                "label": "",
+                "label": "done",
                 "isDefault": true
+              },
+              {
+                "label": "cancel",
+                "isDefault": false
               }
             ],
             "payload": {
               "name": "calendar",
               "body": "{\n  \"today\": 1686696763871\n}",
-              "isBlocking": false
+              "isBlocking": true
             },
             "defaultPath": 0,
             "portsV2": {
@@ -1183,8 +1461,71 @@
               "dynamic": [
                 {
                   "type": "",
-                  "target": null,
-                  "id": "648902fa6b7bd27de5defae7"
+                  "target": "648c92cfb8b7040f2157fc15",
+                  "id": "648902fa6b7bd27de5defae7",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1173.3,
+                          203.88
+                        ]
+                      },
+                      {
+                        "point": [
+                          1219.15,
+                          203.88
+                        ]
+                      },
+                      {
+                        "point": [
+                          1219.15,
+                          94
+                        ]
+                      },
+                      {
+                        "point": [
+                          1265,
+                          94
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  }
+                },
+                {
+                  "id": "648c92d8b8b7040f2157fc1e",
+                  "type": "",
+                  "target": "648c92fbb8b7040f2157fc2d",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1173.3,
+                          258.38
+                        ]
+                      },
+                      {
+                        "point": [
+                          1219.65,
+                          258.38
+                        ]
+                      },
+                      {
+                        "point": [
+                          1219.65,
+                          313
+                        ]
+                      },
+                      {
+                        "point": [
+                          1266,
+                          313
+                        ],
+                        "allowedToTop": true
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -1195,7 +1536,7 @@
           "type": "component",
           "data": {
             "name": "",
-            "diagramID": "64890212ed237e5214bba307",
+            "diagramID": "64890a7a34f66300070f648c",
             "portsV2": {
               "byKey": {},
               "builtIn": {
@@ -1209,33 +1550,150 @@
             }
           },
           "nodeID": "648903946b7bd27de5defb88"
+        },
+        "648c92cfb8b7040f2157fc15": {
+          "type": "block",
+          "data": {
+            "name": "New Block 2",
+            "steps": [
+              "648c9371b8b7040f2157fc41",
+              "648903946b7bd27de5defb88"
+            ],
+            "color": ""
+          },
+          "nodeID": "648c92cfb8b7040f2157fc15",
+          "coords": [
+            1430,
+            67
+          ]
+        },
+        "648c92f6b8b7040f2157fc21": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "rahs3b7p",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "There was an issue selecting that date. What else can I help you with?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "648c92f6b8b7040f2157fc22"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648c92f6b8b7040f2157fc21"
+        },
+        "648c92fbb8b7040f2157fc2d": {
+          "type": "block",
+          "data": {
+            "name": "New Block 3",
+            "steps": [
+              "648c92f6b8b7040f2157fc21",
+              "648c931bb8b7040f2157fc37"
+            ]
+          },
+          "nodeID": "648c92fbb8b7040f2157fc2d",
+          "coords": [
+            1431,
+            286
+          ]
+        },
+        "648c931bb8b7040f2157fc37": {
+          "type": "interaction",
+          "data": {
+            "name": "Choice",
+            "choices": [],
+            "intentScope": "GLOBAL",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "else": {
+                  "type": "else",
+                  "target": null,
+                  "id": "648c931bb8b7040f2157fc39"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648c931bb8b7040f2157fc37"
+        },
+        "648c9371b8b7040f2157fc41": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "2aku3bb7",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "You're ready to join us a for a day of relaxing spa music!"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "648c9371b8b7040f2157fc42"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "648c9371b8b7040f2157fc41"
         }
-      },
+      }
+    },
+    "64890a7a34f66300070f648f": {
+      "_id": "64890a7a34f66300070f648f",
+      "name": "Account",
+      "type": "TOPIC",
+      "zoom": 100,
       "offsetX": 0,
       "offsetY": 0,
-      "modified": 1686700613,
+      "modified": 1686700629,
       "variables": [],
       "menuItems": [
         {
           "type": "NODE",
-          "sourceID": "64890245d98e65000721c6db"
+          "sourceID": "64890255d98e65000721c6de"
         },
         {
           "type": "NODE",
-          "sourceID": "648903946b7bd27de5defb88"
+          "sourceID": "648904786b7bd27de5defbec"
         }
       ],
       "creatorID": 10585,
-      "versionID": "64890212ed237e5214bba2ff",
+      "versionID": "64890a7a34f66300070f648a",
       "intentStepIDs": [
-        "64890245d98e65000721c6db"
-      ]
-    },
-    "648902556a5aac0007551201": {
-      "_id": "648902556a5aac0007551201",
-      "name": "Account",
-      "type": "TOPIC",
-      "zoom": 100,
+        "64890255d98e65000721c6de"
+      ],
       "nodes": {
         "64890255d98e65000721c6df": {
           "type": "block",
@@ -1374,7 +1832,7 @@
           "type": "component",
           "data": {
             "name": "",
-            "diagramID": "64890212ed237e5214bba307",
+            "diagramID": "64890a7a34f66300070f648c",
             "variableMap": null,
             "portsV2": {
               "byKey": {},
@@ -1390,26 +1848,7 @@
           },
           "nodeID": "648904786b7bd27de5defbec"
         }
-      },
-      "offsetX": 0,
-      "offsetY": 0,
-      "modified": 1686700629,
-      "variables": [],
-      "menuItems": [
-        {
-          "type": "NODE",
-          "sourceID": "64890255d98e65000721c6de"
-        },
-        {
-          "type": "NODE",
-          "sourceID": "648904786b7bd27de5defbec"
-        }
-      ],
-      "creatorID": 10585,
-      "versionID": "64890212ed237e5214bba2ff",
-      "intentStepIDs": [
-        "64890255d98e65000721c6de"
-      ]
+      }
     }
   },
   "variableStates": []
