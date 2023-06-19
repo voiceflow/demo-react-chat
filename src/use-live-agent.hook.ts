@@ -20,11 +20,6 @@ export const useLiveAgent = (runtime: ReturnType<typeof useRuntime>) => {
   };
 
   const sendUserReply = (message: string) => {
-    if (!isEnabled) {
-      runtime.reply(message);
-      return;
-    }
-
     runtime.addTurn({
       type: TurnType.USER,
       id: `${Math.random()}-${Date.now()}`,
