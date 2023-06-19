@@ -19,7 +19,7 @@
       "aiPlayground": true
     },
     "_version": 1.2,
-    "updatedAt": "2023-06-16T20:10:55.133Z",
+    "updatedAt": "2023-06-19T14:37:41.383Z",
     "updatedBy": 10585,
     "creatorID": 10585,
     "privacy": "private",
@@ -182,9 +182,8 @@
       "timestamp",
       "platform",
       "locale",
-      "test_message",
-      "recommended_coffee",
-      "test_number"
+      "appointment_date",
+      "pretty_date"
     ],
     "platformData": {
       "slots": [],
@@ -385,7 +384,7 @@
           "64890a7a34f66300070f648f"
         ],
         "rootDiagramID": "64890a7a34f66300070f648b",
-        "updatedAt": "2023-06-16T20:10:59.454Z",
+        "updatedAt": "2023-06-19T14:37:49.985Z",
         "updatedBy": 10585
       }
     ],
@@ -1507,20 +1506,20 @@
                       },
                       {
                         "point": [
-                          1219.65,
+                          1220.15,
                           258.38
                         ]
                       },
                       {
                         "point": [
-                          1219.65,
-                          313
+                          1220.15,
+                          400
                         ]
                       },
                       {
                         "point": [
-                          1266,
-                          313
+                          1267,
+                          400
                         ],
                         "allowedToTop": true
                       }
@@ -1556,6 +1555,7 @@
           "data": {
             "name": "New Block 2",
             "steps": [
+              "64906841f322683a1a4ec050",
               "648c9371b8b7040f2157fc41",
               "648903946b7bd27de5defb88"
             ],
@@ -1611,8 +1611,8 @@
           },
           "nodeID": "648c92fbb8b7040f2157fc2d",
           "coords": [
-            1431,
-            286
+            1432,
+            373
           ]
         },
         "648c931bb8b7040f2157fc37": {
@@ -1646,7 +1646,21 @@
                   {
                     "children": [
                       {
-                        "text": "You're ready to join us a for a day of relaxing spa music!"
+                        "text": "You're ready to join us a for a day of relaxing spa music on "
+                      },
+                      {
+                        "id": "pretty_date",
+                        "name": "pretty_date",
+                        "isSlot": false,
+                        "type": "variable",
+                        "children": [
+                          {
+                            "text": ""
+                          }
+                        ]
+                      },
+                      {
+                        "text": "!"
                       }
                     ]
                   }
@@ -1667,6 +1681,31 @@
             }
           },
           "nodeID": "648c9371b8b7040f2157fc41"
+        },
+        "64906841f322683a1a4ec050": {
+          "type": "code",
+          "data": {
+            "name": "",
+            "code": "pretty_date = new Date(appointment_date).toLocaleDateString()",
+            "paths": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "64906841f322683a1a4ec051"
+                },
+                "fail": {
+                  "type": "fail",
+                  "target": null,
+                  "id": "64906841f322683a1a4ec052"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64906841f322683a1a4ec050"
         }
       }
     },
