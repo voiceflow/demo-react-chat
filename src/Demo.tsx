@@ -110,11 +110,7 @@ export const Demo: React.FC = () => {
                     Message={({ message, ...props }) =>
                       match(message)
                         .with({ type: CustomMessage.CALENDAR }, ({ payload: { today } }) => (
-                          <CalendarMessage
-                            {...props}
-                            value={new Date(today)}
-                            onChange={(date) => runtime.interact({ type: 'done', payload: date })}
-                          />
+                          <CalendarMessage {...props} value={new Date(today)} runtime={runtime} />
                         ))
                         .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => <VideoMessage url={url} />)
                         .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
