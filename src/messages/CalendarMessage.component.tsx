@@ -22,7 +22,6 @@ export const CalendarMessage: React.FC<SystemMessageProps> = ({ value, runtime, 
       body: JSON.stringify({ appointment_date: date }),
       headers: {
         authorization: import.meta.env.VF_DM_API_KEY,
-        versionID: 'development',
         'content-type': 'application/json',
       },
     });

@@ -23,6 +23,23 @@ Write your API key to a `.env.local` file.
 echo 'VF_DM_API_KEY=XXX` > .env.local
 ```
 
+### 🛑 NOT PRODUCTION SAFE 🛑
+
+This setup is **NOT** the recommended way of authenticating a Web Chat project with the Voiceflow Dialog API.
+Using the API key in the browser exposes it to the user and could allow them to make unauthorized requests to the API.
+
+For a production-ready setup, you should publish your Voiceflow assistant and update the options passed to the `useRuntime` hook. You can find your assistant's `projectID` in the code example on the Web Chat Integration page.
+[See our docs](https://developer.voiceflow.com/docs/chat-widget) for more information.
+
+```ts
+useRuntime({
+  verify: { projectID: 'XXX' },
+  versionID: 'production',
+
+  // the rest of your options can stay the same
+});
+```
+
 ## Run Dev Server
 
 The demo app will be available locally at <http://127.0.0.1:3006>.
