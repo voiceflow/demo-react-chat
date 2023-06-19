@@ -7,16 +7,17 @@ export const useLiveAgent = (runtime: ReturnType<typeof useRuntime>) => {
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const [isEnabled, setEnabled] = useState(false);
 
+  const addSystemReply = (message: string) =>
+    runtime.addTurn({
+      type: TurnType.SYSTEM,
+      id: `${Math.random()}-${Date.now()}`,
+      timestamp: Date.now(),
+      messages: [{ type: 'text', text: message }],
+    });
+
   const scheduleSystemReply = (message: string) => {
     clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => {
-      runtime.addTurn({
-        type: TurnType.SYSTEM,
-        id: `${Math.random()}-${Date.now()}`,
-        timestamp: Date.now(),
-        messages: [{ type: 'text', text: message }],
-      });
-    }, LIVE_AGENT_DELAY);
+    timeoutRef.current = setTimeout(() => addSystemReply(message), LIVE_AGENT_DELAY);
   };
 
   const sendUserReply = (message: string) => {
@@ -36,12 +37,7 @@ export const useLiveAgent = (runtime: ReturnType<typeof useRuntime>) => {
 
   const talkToRobot = () => {
     setEnabled(false);
-    runtime.addTurn({
-      type: TurnType.SYSTEM,
-      id: `${Math.random()}-${Date.now()}`,
-      timestamp: Date.now(),
-      messages: [{ type: 'text', text: '' }],
-    });
+    addSystemReply('Returning you to the Voiceflow bot...');
     runtime.interact({ type: 'continue', payload: null });
   };
 

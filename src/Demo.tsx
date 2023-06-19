@@ -48,11 +48,11 @@ export const Demo: React.FC = () => {
   };
 
   const handleSend = (message: string) => {
-    // if (liveAgent.isEnabled) {
-    //   liveAgent.sendUserReply(message);
-    // } else {
-    runtime.reply(message);
-    // }
+    if (liveAgent.isEnabled) {
+      liveAgent.sendUserReply(message);
+    } else {
+      runtime.reply(message);
+    }
   };
 
   if (!open) {
@@ -99,7 +99,7 @@ export const Demo: React.FC = () => {
             onSend={handleSend}
             onMinimize={handleEnd}
           >
-            {/* {liveAgent.isEnabled && <LiveAgentStatus talkToRobot={liveAgent.talkToRobot} />} */}
+            {liveAgent.isEnabled && <LiveAgentStatus talkToRobot={liveAgent.talkToRobot} />}
             {runtime.session.turns.map((turn, turnIndex) =>
               match(turn)
                 .with({ type: TurnType.USER }, ({ id, type: _, ...rest }) => <UserResponse {...rest} key={id} />)
