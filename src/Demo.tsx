@@ -11,12 +11,12 @@ import {
   UserResponse,
   useRuntime,
 } from '@voiceflow/react-chat';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { match } from 'ts-pattern';
 
 import { LiveAgentStatus } from './components/LiveAgentStatus.component';
 import { CustomMessage } from './custom-message.enum';
-import { CalendarMessage } from './messages/CalendarMessage.component';
+import { CalendarMessage, SystemMessageProps } from './messages/CalendarMessage.component';
 import { VideoMessage } from './messages/VideoMessage.component';
 import { DemoContainer } from './styled';
 import { AccountInfoTrace } from './traces/account-info.trace';
@@ -27,6 +27,20 @@ import { useLiveAgent } from './use-live-agent.hook';
 
 const IMAGE = 'https://picsum.photos/seed/1/200/300';
 const AVATAR = 'https://picsum.photos/seed/1/80/80';
+
+const StreamedMessage: React.FC<{ getSocket: () => any }> = ({ getSocket }) => {
+  const [text, setText] = useState('');
+
+  const socket = useMemo(() => getSocket(), []);
+
+  useEffect(() => {
+    socket.listen((next: string) => {
+      setText((prev) => `${prev} ${next}`);
+    });
+  }, []);
+
+  return <SystemResponse.SystemMessage avatar="" timestamp={0} withImage={false} message={{ type: 'text', text }} />;
+};
 
 export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -102,6 +116,7 @@ export const Demo: React.FC = () => {
                           <CalendarMessage {...props} value={new Date(today)} runtime={runtime} />
                         ))
                         .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => <VideoMessage url={url} />)
+                        .with({ type: CustomMessage.STREAMED_RESPONSE }, ({ payload: { getSocket } }) => <StreamedMessage getSocket={getSocket} />)
                         .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
                     }
                     avatar={AVATAR}

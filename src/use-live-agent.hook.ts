@@ -1,6 +1,8 @@
 import { TurnType, useRuntime } from '@voiceflow/react-chat';
 import { useEffect, useRef, useState } from 'react';
 
+import { CustomMessage } from './custom-message.enum';
+
 const LIVE_AGENT_DELAY = 2000;
 
 export const useLiveAgent = (runtime: ReturnType<typeof useRuntime>) => {
@@ -12,7 +14,7 @@ export const useLiveAgent = (runtime: ReturnType<typeof useRuntime>) => {
       type: TurnType.SYSTEM,
       id: `${Math.random()}-${Date.now()}`,
       timestamp: Date.now(),
-      messages: [{ type: 'text', text: message }],
+      messages: [{ type: CustomMessage.STREAMED_RESPONSE, payload: { getSocket: () => ({}) } }],
     });
 
   const scheduleSystemReply = (message: string) => {
