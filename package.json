@@ -8,10 +8,11 @@
   },
   "prettier": "@voiceflow/prettier-config",
   "dependencies": {
-    "@voiceflow/react-chat": "1.40.0",
+    "@voiceflow/react-chat": "../react-chat/packages/react-chat/",
     "react": "18.2.0",
     "react-calendar": "4.3.0",
     "react-dom": "18.2.0",
+    "styled-components": "6.0.3",
     "ts-pattern": "4.3.0"
   },
   "devDependencies": {

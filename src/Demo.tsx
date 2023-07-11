@@ -18,6 +18,7 @@ import { LiveAgentStatus } from './components/LiveAgentStatus.component';
 import { CustomMessage } from './custom-message.enum';
 import { CalendarMessage } from './messages/CalendarMessage.component';
 import { VideoMessage } from './messages/VideoMessage.component';
+import { DemoContainer } from './styled';
 import { AccountInfoTrace } from './traces/account-info.trace';
 import { CalendarTrace } from './traces/calendar.trace';
 import { TalkToAgentTrace } from './traces/talk-to-agent.trace';
@@ -70,19 +71,7 @@ export const Demo: React.FC = () => {
   }
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        right: '1rem',
-        top: '3rem',
-        bottom: '3rem',
-        width: '400px',
-        border: '1px solid #ddd',
-        borderRadius: '8px',
-        overflowX: 'hidden',
-        overflowY: 'scroll',
-      }}
-    >
+    <DemoContainer>
       <ChatWindow.Container>
         <RuntimeAPIProvider {...runtime}>
           <Chat
@@ -125,6 +114,6 @@ export const Demo: React.FC = () => {
           </Chat>
         </RuntimeAPIProvider>
       </ChatWindow.Container>
-    </div>
+    </DemoContainer>
   );
 };
