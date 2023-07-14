@@ -1,0 +1,14 @@
+{
+  "name": "demo-streaming-server",
+  "private": true,
+  "scripts": {
+    "dev": "tsx src/main.ts"
+  },
+  "dependencies": {
+    "ws": "8.13.0"
+  },
+  "devDependencies": {
+    "@types/ws": "8.5.5",
+    "tsx": "3.12.7"
+  }
+}

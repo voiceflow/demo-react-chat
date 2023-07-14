@@ -14,7 +14,7 @@ export const useLiveAgent = (runtime: ReturnType<typeof useRuntime>) => {
       type: TurnType.SYSTEM,
       id: `${Math.random()}-${Date.now()}`,
       timestamp: Date.now(),
-      messages: [{ type: CustomMessage.STREAMED_RESPONSE, payload: { getSocket: () => ({}) } }],
+      messages: [{ type: CustomMessage.STREAMED_RESPONSE, payload: { getSocket: () => new WebSocket('ws://localhost:9099') } }],
     });
 
   const scheduleSystemReply = (message: string) => {

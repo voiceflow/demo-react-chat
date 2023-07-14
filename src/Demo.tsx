@@ -16,7 +16,7 @@ import { match } from 'ts-pattern';
 
 import { LiveAgentStatus } from './components/LiveAgentStatus.component';
 import { CustomMessage } from './custom-message.enum';
-import { CalendarMessage, SystemMessageProps } from './messages/CalendarMessage.component';
+import { CalendarMessage } from './messages/CalendarMessage.component';
 import { VideoMessage } from './messages/VideoMessage.component';
 import { DemoContainer } from './styled';
 import { AccountInfoTrace } from './traces/account-info.trace';
@@ -28,15 +28,15 @@ import { useLiveAgent } from './use-live-agent.hook';
 const IMAGE = 'https://picsum.photos/seed/1/200/300';
 const AVATAR = 'https://picsum.photos/seed/1/80/80';
 
-const StreamedMessage: React.FC<{ getSocket: () => any }> = ({ getSocket }) => {
+const StreamedMessage: React.FC<{ getSocket: () => WebSocket }> = ({ getSocket }) => {
   const [text, setText] = useState('');
 
   const socket = useMemo(() => getSocket(), []);
 
   useEffect(() => {
-    socket.listen((next: string) => {
-      setText((prev) => `${prev} ${next}`);
-    });
+    socket.onmessage = (event) => {
+      setText((prev) => `${prev} ${event.data}`);
+    };
   }, []);
 
   return <SystemResponse.SystemMessage avatar="" timestamp={0} withImage={false} message={{ type: 'text', text }} />;
