@@ -1652,6 +1652,16 @@
     eslint-plugin-xss "0.1.12"
     eslint-plugin-you-dont-need-lodash-underscore "^6.12.0"
 
+"@voiceflow/exception@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@voiceflow/exception/-/exception-1.4.0.tgz#4c6dd6c7536e038581998dde1b43149da9622541"
+  integrity sha512-G8zyssXIcL/bFnuuYkVBNbflu+Ut0cJulwfnOkdn5rvFmwEZ0xOFbxhcHAoTi18kCg49SkQ2PTWY9rDa2NZGsw==
+
+"@voiceflow/fetch@1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@voiceflow/fetch/-/fetch-1.5.2.tgz#81685a7f94214ce572cf3074c53f0b5380fdb91b"
+  integrity sha512-UsdY5t5EQLdoLAVZSxaffyfGIdMpagOqnyLhLV1quYWEFJNv/bmm0Np7b6vK+WVTNe852xWe/oXKzkh4D7sdLg==
+
 "@voiceflow/prettier-config@1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@voiceflow/prettier-config/-/prettier-config-1.3.0.tgz#cefe1a34230ecf6497308816f671cf9e5de94639"
@@ -1694,6 +1704,13 @@
   integrity sha512-idX3YyQ9dvhx3U6dPZfMFvC/fw9AiUxCsVSoGGi7HHLm5afbKyA0WMmhABqvIsbKucQ1GwrkOR9Bgpch/1psow==
   dependencies:
     csstype "^3.0.9"
+
+"@voiceflow/slate-serializer@1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@voiceflow/slate-serializer/-/slate-serializer-1.4.2.tgz#0cd23440769604bd310dfa90acc3eb42e82bb177"
+  integrity sha512-iemZec2mQ4BBOfEJLETbbFUs5mvBI3nvavdp9qEDrn5NqaJY3i1rTfXEbakJLHyVLUezrlhbirrr0v0QhjvhSQ==
+  dependencies:
+    csstype "3.1.2"
 
 "@voiceflow/voice-types@^2.9.30":
   version "2.9.30"
@@ -2142,7 +2159,7 @@ csstype@3.1.0:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.0.tgz#4ddcac3718d787cf9df0d1b7d15033925c8f29f2"
   integrity sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==
 
-csstype@^3.0.2, csstype@^3.0.9, csstype@^3.1.2:
+csstype@3.1.2, csstype@^3.0.2, csstype@^3.0.9, csstype@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
   integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
@@ -3622,6 +3639,11 @@ murmurhash-wasm@^1.3.0:
   dependencies:
     "@assemblyscript/loader" "0.19.22"
     buffer "6.0.3"
+
+nanoevents@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/nanoevents/-/nanoevents-8.0.0.tgz#d58d5cf69b172d794707b2468bdaccc415ad23b6"
+  integrity sha512-bYYwNCdNc5ea6/Lwh1uioU1/7aaKa3EPmNQ2weTm8PWSpbWrsaWHePe0Zq4SF+D3F3JX3cn+QdktOPCf1meOqw==
 
 nanoid@^3.3.6:
   version "3.3.6"
