@@ -50,6 +50,12 @@ yarn dev
 
 <img width="442" alt="Screenshot 2023-06-12 at 3 53 10 AM" src="https://github.com/voiceflow/demo-react-chat/assets/3784470/417199c3-317f-4722-9b5f-e27fff78d6e8">
 
+## Live Agent Handoff
+
+To demo this functionality you will need to run a local WebSocket server that will interface with the live agent platform.
+The `server/` directory contains a sample server with some basic integrations.
+See the [README](server/README.md) for more information.
+
 ## Invoke Custom Actions
 
 ### `account_info`

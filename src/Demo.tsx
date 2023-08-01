@@ -1,10 +1,11 @@
 import 'react-calendar/dist/Calendar.css';
 
 import { Chat, ChatWindow, Launcher, RuntimeAPIProvider, SessionStatus, SystemResponse, TurnType, UserResponse } from '@voiceflow/react-chat';
-import { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useState } from 'react';
 import { match } from 'ts-pattern';
 
 import { LiveAgentStatus } from './components/LiveAgentStatus.component';
+import { StreamedMessage } from './components/StreamedMessage.component';
 import { RuntimeContext } from './context';
 import { CustomMessage } from './custom-message.enum';
 import { CalendarMessage } from './messages/CalendarMessage.component';
@@ -14,20 +15,6 @@ import { useLiveAgent } from './use-live-agent.hook';
 
 const IMAGE = 'https://picsum.photos/seed/1/200/300';
 const AVATAR = 'https://picsum.photos/seed/1/80/80';
-
-const StreamedMessage: React.FC<{ getSocket: () => WebSocket }> = ({ getSocket }) => {
-  const [text, setText] = useState('');
-
-  const socket = useMemo(() => getSocket(), []);
-
-  useEffect(() => {
-    socket.onmessage = (event) => {
-      setText((prev) => `${prev} ${event.data}`);
-    };
-  }, []);
-
-  return <SystemResponse.SystemMessage avatar="" timestamp={0} withImage={false} message={{ type: 'text', text }} />;
-};
 
 export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);

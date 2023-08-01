@@ -19,7 +19,7 @@
       "aiPlayground": true
     },
     "_version": 1.2,
-    "updatedAt": "2023-06-19T14:37:41.383Z",
+    "updatedAt": "2023-08-01T21:09:59.007Z",
     "updatedBy": 10585,
     "creatorID": 10585,
     "privacy": "private",
@@ -172,6 +172,7 @@
         "slots": []
       }
     },
+    "liveVersion": "64ad731752213a0006da630b",
     "createdAt": "2023-06-14T00:31:54.000Z"
   },
   "version": {
@@ -354,7 +355,7 @@
       },
       "platform": "webchat"
     },
-    "_version": 4.02,
+    "_version": 4.03,
     "name": "Initial Version",
     "projectID": "64890a7a34f66300070f6489",
     "manualSave": false,
@@ -384,7 +385,7 @@
           "64890a7a34f66300070f648f"
         ],
         "rootDiagramID": "64890a7a34f66300070f648b",
-        "updatedAt": "2023-06-19T14:37:49.985Z",
+        "updatedAt": "2023-08-01T21:04:57.655Z",
         "updatedBy": 10585
       }
     ],
@@ -656,8 +657,8 @@
                       },
                       {
                         "point": [
-                          15.35,
-                          -702.7
+                          284.24,
+                          -708.43
                         ]
                       }
                     ]
@@ -681,8 +682,8 @@
           },
           "nodeID": "646187c35b0afc227e84c8e0",
           "coords": [
-            180.3502216607124,
-            -729.7007454575531
+            449.2446938673405,
+            -735.4280555562118
           ]
         },
         "646187c35b0afc227e84c8f8": {
@@ -711,6 +712,20 @@
                     "children": [
                       {
                         "text": "You could ask to book an appointment, check your account or anything about the services we offer!"
+                      }
+                    ]
+                  },
+                  {
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  },
+                  {
+                    "children": [
+                      {
+                        "text": "To talk to a live agent say \"I want to talk to a human\""
                       }
                     ]
                   }
@@ -949,15 +964,7 @@
         },
         {
           "type": "NODE",
-          "sourceID": "648904896b7bd27de5defc11"
-        },
-        {
-          "type": "NODE",
           "sourceID": "648cbeee63d33f8c51024391"
-        },
-        {
-          "type": "NODE",
-          "sourceID": "648cbf2e63d33f8c510243ab"
         }
       ],
       "creatorID": 10585,
@@ -1167,7 +1174,7 @@
               "builtIn": {
                 "next": {
                   "type": "next",
-                  "target": "648cbf1163d33f8c51024399",
+                  "target": "64c972e405358f03eec358a2",
                   "id": "648cbeee63d33f8c51024392",
                   "data": {
                     "points": [
@@ -1179,8 +1186,8 @@
                       },
                       {
                         "point": [
-                          549.5,
-                          561.75
+                          698,
+                          559.75
                         ]
                       }
                     ]
@@ -1242,17 +1249,18 @@
         "648cbf1163d33f8c51024399": {
           "type": "block",
           "data": {
-            "name": "New Block 4",
+            "name": "Intercom",
             "steps": [
               "648cbf1163d33f8c51024397",
               "648cbf1f63d33f8c510243a0",
               "648cbf2e63d33f8c510243ab"
-            ]
+            ],
+            "color": "#74a2b5"
           },
           "nodeID": "648cbf1163d33f8c51024399",
           "coords": [
-            714.4999999999999,
-            534.7500610351562
+            1282,
+            713.5000610351562
           ]
         },
         "648cbf1f63d33f8c510243a0": {
@@ -1268,7 +1276,7 @@
             ],
             "payload": {
               "name": "talk_to_agent",
-              "body": "",
+              "body": "{ \"platform\": \"intercom\" }",
               "isBlocking": true
             },
             "defaultPath": 0,
@@ -1304,6 +1312,128 @@
             }
           },
           "nodeID": "648cbf2e63d33f8c510243ab"
+        },
+        "64c972e405358f03eec358a0": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "jh2m93bnj",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Which platform do you want to use?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "64c972e405358f03eec358a1"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64c972e405358f03eec358a0"
+        },
+        "64c972e405358f03eec358a2": {
+          "type": "block",
+          "data": {
+            "name": "Live Agent",
+            "steps": [
+              "64c972e405358f03eec358a0",
+              "64c9730105358f03eec358a8"
+            ],
+            "color": ""
+          },
+          "nodeID": "64c972e405358f03eec358a2",
+          "coords": [
+            862.9999694824219,
+            532.7498779296874
+          ]
+        },
+        "64c9730105358f03eec358a8": {
+          "type": "carousel",
+          "data": {
+            "name": "Card",
+            "cards": [
+              {
+                "id": "sz2my3b40",
+                "title": "Intercom",
+                "description": [
+                  {
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  }
+                ],
+                "imageUrl": "https://www.intercom.com/_next/static/images/intercom-logo-7b36b3b2916d7eaacad8cbcec92ead24.png",
+                "buttons": [
+                  {
+                    "id": "p02o83b4y",
+                    "name": "Use Intercom",
+                    "intent": null
+                  }
+                ]
+              },
+              {
+                "id": "4h2ow3buz",
+                "title": "More coming soon...",
+                "description": [
+                  {
+                    "children": [
+                      {
+                        "text": ""
+                      }
+                    ]
+                  }
+                ],
+                "imageUrl": "https://cm4-production-assets.s3.amazonaws.com/1690924147514-screenshot-2023-08-01-at-5.08.54-pm.png",
+                "buttons": []
+              }
+            ],
+            "layout": "Carousel",
+            "portsV2": {
+              "byKey": {
+                "p02o83b4y": {
+                  "id": "64c9735105358f03eec358b2",
+                  "target": "648cbf1163d33f8c51024399",
+                  "type": "",
+                  "data": {}
+                }
+              },
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "64c9730105358f03eec358a9"
+                },
+                "else": {
+                  "type": "else",
+                  "target": null,
+                  "id": "64c9730105358f03eec358aa"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64c9730105358f03eec358a8",
+          "coords": [
+            0,
+            0
+          ]
         }
       }
     },
@@ -1320,10 +1450,6 @@
         {
           "type": "NODE",
           "sourceID": "64890245d98e65000721c6db"
-        },
-        {
-          "type": "NODE",
-          "sourceID": "648903946b7bd27de5defb88"
         }
       ],
       "creatorID": 10585,
@@ -1722,10 +1848,6 @@
         {
           "type": "NODE",
           "sourceID": "64890255d98e65000721c6de"
-        },
-        {
-          "type": "NODE",
-          "sourceID": "648904786b7bd27de5defbec"
         }
       ],
       "creatorID": 10585,

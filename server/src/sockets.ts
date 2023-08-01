@@ -1,24 +1,24 @@
-import { WebSocket } from 'ws';
+export enum SocketEvent {
+  // server-sent events
+  LIVE_AGENT_CONNECT = 'live_agent.connect',
+  LIVE_AGENT_DISCONNECT = 'live_agent.disconnect',
+  LIVE_AGENT_MESSAGE = 'live_agent.message',
 
-enum SocketEvent {
-  CONVERSATION_RESTORE = 'conversation:restore',
-  LIVE_AGENT_ASSIGN = 'live_agent:assign',
-  LIVE_AGENT_CONNECT = 'live_agent:connect',
-  LIVE_AGENT_DISCONNECT = 'live_agent:disconnect',
-  LIVE_AGENT_MESSAGE = 'live_agent:message',
+  // client-sent events
+  USER_MESSAGE = 'user.message',
 }
 
-export const restoreConversation = (ws: WebSocket, conversation: any) =>
-  ws.send(JSON.stringify({ type: SocketEvent.CONVERSATION_RESTORE, data: { conversation } }));
+export const connectLiveAgent = (conversation: any, agent: any) => ({
+  type: SocketEvent.LIVE_AGENT_CONNECT,
+  data: { conversation, agent },
+});
 
-export const assignLiveAgent = (ws: WebSocket, conversation: any) =>
-  ws.send(JSON.stringify({ type: SocketEvent.LIVE_AGENT_ASSIGN, data: { conversation } }));
+export const disconnectLiveAgent = (conversation: any, agent: any) => ({
+  type: SocketEvent.LIVE_AGENT_DISCONNECT,
+  data: { conversation, agent },
+});
 
-export const connectLiveAgent = (ws: WebSocket, conversation: any) =>
-  ws.send(JSON.stringify({ type: SocketEvent.LIVE_AGENT_CONNECT, data: { conversation } }));
-
-export const disconnectLiveAgent = (ws: WebSocket, conversation: any) =>
-  ws.send(JSON.stringify({ type: SocketEvent.LIVE_AGENT_DISCONNECT, data: { conversation } }));
-
-export const sendLiveAgentMessage = (ws: WebSocket, message: string) =>
-  ws.send(JSON.stringify({ type: SocketEvent.LIVE_AGENT_MESSAGE, data: { message } }));
+export const sendLiveAgentMessage = (message: string) => ({
+  type: SocketEvent.LIVE_AGENT_MESSAGE,
+  data: { message },
+});
