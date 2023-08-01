@@ -1,28 +1,16 @@
 import 'react-calendar/dist/Calendar.css';
 
-import {
-  Chat,
-  ChatWindow,
-  Launcher,
-  RuntimeAPIProvider,
-  SessionStatus,
-  SystemResponse,
-  TurnType,
-  UserResponse,
-  useRuntime,
-} from '@voiceflow/react-chat';
-import { useState } from 'react';
+import { Chat, ChatWindow, Launcher, RuntimeAPIProvider, SessionStatus, SystemResponse, TurnType, UserResponse } from '@voiceflow/react-chat';
+import { useContext, useState } from 'react';
 import { match } from 'ts-pattern';
 
 import { LiveAgentStatus } from './components/LiveAgentStatus.component';
+import { StreamedMessage } from './components/StreamedMessage.component';
+import { RuntimeContext } from './context';
 import { CustomMessage } from './custom-message.enum';
 import { CalendarMessage } from './messages/CalendarMessage.component';
 import { VideoMessage } from './messages/VideoMessage.component';
 import { DemoContainer } from './styled';
-import { AccountInfoTrace } from './traces/account-info.trace';
-import { CalendarTrace } from './traces/calendar.trace';
-import { TalkToAgentTrace } from './traces/talk-to-agent.trace';
-import { VideoTrace } from './traces/video.trace';
 import { useLiveAgent } from './use-live-agent.hook';
 
 const IMAGE = 'https://picsum.photos/seed/1/200/300';
@@ -31,12 +19,8 @@ const AVATAR = 'https://picsum.photos/seed/1/80/80';
 export const Demo: React.FC = () => {
   const [open, setOpen] = useState(false);
 
-  const runtime = useRuntime({
-    verify: { authorization: import.meta.env.VF_DM_API_KEY },
-    session: { userID: `anonymous-${Math.random()}` },
-    traces: [AccountInfoTrace, CalendarTrace, VideoTrace, TalkToAgentTrace(() => liveAgent.talkToAgent())],
-  });
-  const liveAgent = useLiveAgent(runtime);
+  const { runtime } = useContext(RuntimeContext)!;
+  const liveAgent = useLiveAgent();
 
   const handleLaunch = async () => {
     setOpen(true);
@@ -102,6 +86,7 @@ export const Demo: React.FC = () => {
                           <CalendarMessage {...props} value={new Date(today)} runtime={runtime} />
                         ))
                         .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => <VideoMessage url={url} />)
+                        .with({ type: CustomMessage.STREAMED_RESPONSE }, ({ payload: { getSocket } }) => <StreamedMessage getSocket={getSocket} />)
                         .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
                     }
                     avatar={AVATAR}

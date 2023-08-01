@@ -8,7 +8,11 @@
   },
   "prettier": "@voiceflow/prettier-config",
   "dependencies": {
+    "@voiceflow/exception": "1.4.0",
+    "@voiceflow/fetch": "1.5.2",
     "@voiceflow/react-chat": "1.41.0",
+    "@voiceflow/slate-serializer": "1.4.2",
+    "nanoevents": "8.0.0",
     "react": "18.2.0",
     "react-calendar": "4.3.0",
     "react-dom": "18.2.0",
