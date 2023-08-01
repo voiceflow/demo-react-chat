@@ -49,7 +49,11 @@ export const useLiveAgent = () => {
       messages: [{ type: 'text', text: message }],
     });
 
-  const continueConversation = () => runtime.interact({ type: 'continue', payload: null });
+  const continueConversation = () => {
+    socketRef.current?.close();
+    socketRef.current = null;
+    runtime.interact({ type: 'continue', payload: null });
+  };
 
   const talkToRobot = () => {
     setEnabled(false);
