@@ -88,7 +88,7 @@ export const useLiveAgent = () => {
 
       if (!isPlatformEnabled) {
         addSystemMessage(
-          `Sorry, it appears that ${platform} has not been configured. Make sure to create a "./server/.env" file that contains the environment variable "${platform.toUpperCase()}_TOKEN" and that the value is a valid ${platform} API key.`
+          `Sorry, it appears that ${platform} has not been configured. Make sure to create a "./server/.env" file that contains the environment variable "${platform.toUpperCase()}_TOKEN" and that the value is a valid ${platform} API key. You also should run the server located in "./server" with the "yarn dev" command.`
         );
         continueConversation();
         return;
