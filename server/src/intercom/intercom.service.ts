@@ -27,6 +27,7 @@ export class IntercomService {
 
     this.send(conversation.id, disconnectLiveAgent(conversation, agent));
     this.conversations.get(conversation.id)?.close();
+    this.conversations.delete(conversation.id);
   }
 
   public async sendAgentReply(conversation: any) {
