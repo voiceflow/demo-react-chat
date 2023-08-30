@@ -9,7 +9,7 @@ export default defineConfig({
     outDir: 'build',
     lib: {
       entry: path.resolve(__dirname, 'src/main.ts'),
-      name: 'voiceflow-chat',
+      name: 'voiceflow-webchat-plugin',
       fileName: 'bundle',
       formats: ['es'],
     },
