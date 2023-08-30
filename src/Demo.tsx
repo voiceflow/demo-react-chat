@@ -87,11 +87,7 @@ export const Demo: React.FC = () => {
                         ))
                         .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => <VideoMessage url={url} />)
                         .with({ type: CustomMessage.STREAMED_RESPONSE }, ({ payload: { getSocket } }) => <StreamedMessage getSocket={getSocket} />)
-                        .with({ type: CustomMessage.PLUGIN }, ({ payload: { name } }) => {
-                          const Message = window.vfplugin?.[name].Message;
-
-                          return Message ? <Message /> : null;
-                        })
+                        .with({ type: CustomMessage.PLUGIN }, ({ payload: { Message } }) => <Message />)
                         .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
                     }
                     avatar={AVATAR}
