@@ -2,7 +2,7 @@ import 'react-calendar/dist/Calendar.css';
 
 import { Chat, ChatWindow, Launcher, RuntimeAPIProvider, SessionStatus, SystemResponse, TurnType, UserResponse } from '@voiceflow/react-chat';
 import { useContext, useState } from 'react';
-import { match } from 'ts-pattern';
+import { match, P } from 'ts-pattern';
 
 import { LiveAgentStatus } from './components/LiveAgentStatus.component';
 import { StreamedMessage } from './components/StreamedMessage.component';
@@ -87,6 +87,11 @@ export const Demo: React.FC = () => {
                         ))
                         .with({ type: CustomMessage.VIDEO }, ({ payload: url }) => <VideoMessage url={url} />)
                         .with({ type: CustomMessage.STREAMED_RESPONSE }, ({ payload: { getSocket } }) => <StreamedMessage getSocket={getSocket} />)
+                        .with({ type: CustomMessage.PLUGIN }, ({ payload: { name } }) => {
+                          const Message = window.vfplugin?.[name].Message;
+
+                          return Message ? <Message /> : null;
+                        })
                         .otherwise(() => <SystemResponse.SystemMessage {...props} message={message} />)
                     }
                     avatar={AVATAR}

@@ -19,7 +19,7 @@
       "aiPlayground": true
     },
     "_version": 1.2,
-    "updatedAt": "2023-08-01T21:09:59.007Z",
+    "updatedAt": "2023-08-30T21:16:00.130Z",
     "updatedBy": 10585,
     "creatorID": 10585,
     "privacy": "private",
@@ -27,9 +27,9 @@
       "nlp": {
         "appID": "89eabd30-d38f-4d3e-a90b-0426676bc10e",
         "resourceID": "pcbagggb:https://westus.api.cognitive.microsoft.com/",
-        "type": "LUIS"
+        "type": "VFNLU"
       },
-      "lastTrainedTime": 1686945610438,
+      "lastTrainedTime": 1693430193031,
       "trainedModel": {
         "intents": [
           {
@@ -167,12 +167,141 @@
               }
             ],
             "slots": []
+          },
+          {
+            "key": "VF.STOP",
+            "name": "VF.STOP",
+            "inputs": [
+              {
+                "text": "stop"
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "dwiz3nlu",
+            "name": "activate_plugin",
+            "inputs": [
+              {
+                "text": "start {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "launch {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "launch the {{[plugin].uki93nzs}} plugin",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "open {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "Run the {{[plugin].uki93nzs}} plugin",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "Activate the {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "I want to use a plugin",
+                "slots": []
+              }
+            ],
+            "slots": [
+              {
+                "id": "uki93nzs",
+                "required": true,
+                "dialog": {
+                  "prompt": [
+                    {
+                      "id": "njja3n6t",
+                      "content": [
+                        {
+                          "children": [
+                            {
+                              "text": "What plugin are you trying to activate?"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "confirm": [],
+                  "utterances": [],
+                  "confirmEnabled": false
+                }
+              }
+            ]
           }
         ],
-        "slots": []
+        "slots": [
+          {
+            "key": "uki93nzs",
+            "name": "plugin",
+            "type": {
+              "value": "Custom"
+            },
+            "color": "#dc8879",
+            "inputs": [
+              "tetris"
+            ]
+          }
+        ]
       }
     },
-    "liveVersion": "64ad731752213a0006da630b",
+    "liveVersion": "64d25fa1e8300a00077e4eec",
+    "knowledgeBase": {
+      "documents": {
+        "64ee213c45ad1d0007db8206": {
+          "status": {
+            "type": "SUCCESS"
+          },
+          "data": {
+            "type": "url",
+            "name": "voiceflow.com/",
+            "url": "https://voiceflow.com"
+          },
+          "updatedAt": "2023-08-29T16:47:56.190Z",
+          "creatorID": 10585,
+          "documentID": "64ee213c45ad1d0007db8206",
+          "version": 0.2
+        }
+      },
+      "settings": {
+        "chunkStrategy": {
+          "type": "recursive_text_splitter",
+          "size": 1200,
+          "overlap": 200
+        },
+        "search": {
+          "limit": 3,
+          "metric": "IP"
+        },
+        "summarization": {
+          "prompt": "",
+          "mode": "prompt",
+          "model": "claude-v1",
+          "temperature": 0.1,
+          "system": "You are an FAQ AI chat assistant. Information will be provided to help answer the user's questions. Always summarize your response to be as brief as possible and be extremely concise. Your responses should be fewer than a couple of sentences."
+        }
+      }
+    },
     "createdAt": "2023-06-14T00:31:54.000Z"
   },
   "version": {
@@ -187,7 +316,19 @@
       "pretty_date"
     ],
     "platformData": {
-      "slots": [],
+      "slots": [
+        {
+          "key": "uki93nzs",
+          "name": "plugin",
+          "type": {
+            "value": "Custom"
+          },
+          "color": "#dc8879",
+          "inputs": [
+            "tetris"
+          ]
+        }
+      ],
       "intents": [
         {
           "key": "m6vd39la",
@@ -314,6 +455,83 @@
             }
           ],
           "slots": []
+        },
+        {
+          "key": "VF.STOP",
+          "name": "VF.STOP",
+          "inputs": [],
+          "slots": []
+        },
+        {
+          "key": "dwiz3nlu",
+          "name": "activate_plugin",
+          "inputs": [
+            {
+              "text": "start {{[plugin].uki93nzs}} ",
+              "slots": [
+                "uki93nzs"
+              ]
+            },
+            {
+              "text": "launch {{[plugin].uki93nzs}} ",
+              "slots": [
+                "uki93nzs"
+              ]
+            },
+            {
+              "text": "launch the {{[plugin].uki93nzs}} plugin",
+              "slots": [
+                "uki93nzs"
+              ]
+            },
+            {
+              "text": "open {{[plugin].uki93nzs}} ",
+              "slots": [
+                "uki93nzs"
+              ]
+            },
+            {
+              "text": "Run the {{[plugin].uki93nzs}} plugin",
+              "slots": [
+                "uki93nzs"
+              ]
+            },
+            {
+              "text": "Activate the {{[plugin].uki93nzs}} ",
+              "slots": [
+                "uki93nzs"
+              ]
+            },
+            {
+              "text": "I want to use a plugin",
+              "slots": []
+            }
+          ],
+          "slots": [
+            {
+              "id": "uki93nzs",
+              "dialog": {
+                "prompt": [
+                  {
+                    "id": "njja3n6t",
+                    "content": [
+                      {
+                        "children": [
+                          {
+                            "text": "What plugin are you trying to activate?"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "confirm": [],
+                "utterances": [],
+                "confirmEnabled": false
+              },
+              "required": true
+            }
+          ]
         }
       ],
       "settings": {
@@ -355,7 +573,7 @@
       },
       "platform": "webchat"
     },
-    "_version": 4.03,
+    "_version": 4.05,
     "name": "Initial Version",
     "projectID": "64890a7a34f66300070f6489",
     "manualSave": false,
@@ -382,10 +600,11 @@
           "64890a7a34f66300070f648b",
           "64890a7a34f66300070f648d",
           "64890a7a34f66300070f648e",
-          "64890a7a34f66300070f648f"
+          "64890a7a34f66300070f648f",
+          "64ef9d80d3a06800070efbd8"
         ],
         "rootDiagramID": "64890a7a34f66300070f648b",
-        "updatedAt": "2023-08-01T21:04:57.655Z",
+        "updatedAt": "2023-08-11T16:07:55.824Z",
         "updatedBy": 10585
       }
     ],
@@ -569,9 +788,102 @@
               }
             ],
             "slots": []
+          },
+          {
+            "key": "VF.STOP",
+            "name": "VF.STOP",
+            "inputs": [
+              {
+                "text": "stop"
+              }
+            ],
+            "slots": []
+          },
+          {
+            "key": "dwiz3nlu",
+            "name": "activate_plugin",
+            "inputs": [
+              {
+                "text": "start {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "launch {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "launch the {{[plugin].uki93nzs}} plugin",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "open {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "Run the {{[plugin].uki93nzs}} plugin",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "Activate the {{[plugin].uki93nzs}}",
+                "slots": [
+                  "uki93nzs"
+                ]
+              },
+              {
+                "text": "I want to use a plugin",
+                "slots": []
+              }
+            ],
+            "slots": [
+              {
+                "id": "uki93nzs",
+                "required": true,
+                "dialog": {
+                  "prompt": [
+                    {
+                      "id": "njja3n6t",
+                      "content": [
+                        {
+                          "children": [
+                            {
+                              "text": "What plugin are you trying to activate?"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "confirm": [],
+                  "utterances": [],
+                  "confirmEnabled": false
+                }
+              }
+            ]
           }
         ],
-        "slots": []
+        "slots": [
+          {
+            "key": "uki93nzs",
+            "name": "plugin",
+            "type": {
+              "value": "Custom"
+            },
+            "color": "#dc8879",
+            "inputs": [
+              "tetris"
+            ]
+          }
+        ]
       },
       "context": {
         "stack": [
@@ -584,15 +896,29 @@
         "variables": {}
       },
       "surveyorContext": {
-        "slotsMap": {},
+        "slotsMap": {
+          "uki93nzs": {
+            "key": "uki93nzs",
+            "name": "plugin",
+            "type": {
+              "value": "Custom"
+            },
+            "color": "#dc8879",
+            "inputs": [
+              "tetris"
+            ]
+          }
+        },
         "extraSlots": [],
         "extraIntents": [],
         "usedIntentsSet": [
+          "VF.STOP",
           "VF.HELP",
           "ef2z239t0",
           "60gy3iks",
           "m6vd39la",
-          "5o2iw39qz"
+          "5o2iw39qz",
+          "dwiz3nlu"
         ],
         "platform": "webchat",
         "goToIntentsSet": [],
@@ -624,6 +950,10 @@
         {
           "type": "NODE",
           "sourceID": "start00000000000000000000"
+        },
+        {
+          "type": "NODE",
+          "sourceID": "64d25f7034919d3fde829adf"
         }
       ],
       "nodes": {
@@ -647,22 +977,7 @@
                   "type": "next",
                   "target": "646187c35b0afc227e84c8e0",
                   "id": "6032afcf359e8c14c06c0319",
-                  "data": {
-                    "points": [
-                      {
-                        "point": [
-                          -60.84,
-                          -704.69
-                        ]
-                      },
-                      {
-                        "point": [
-                          284.24,
-                          -708.43
-                        ]
-                      }
-                    ]
-                  }
+                  "data": {}
                 }
               },
               "dynamic": []
@@ -783,6 +1098,118 @@
             0,
             0
           ]
+        },
+        "64d25f7034919d3fde829adf": {
+          "type": "intent",
+          "data": {
+            "name": "",
+            "intent": "VF.STOP",
+            "mappings": [],
+            "availability": "GLOBAL",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "64d25f7b34919d3fde829ae7",
+                  "id": "64d25f7034919d3fde829ae0",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          -60.61,
+                          -270.92
+                        ]
+                      },
+                      {
+                        "point": [
+                          279.57,
+                          -273.96
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64d25f7034919d3fde829adf"
+        },
+        "64d25f7034919d3fde829ae1": {
+          "type": "block",
+          "data": {
+            "name": "",
+            "steps": [
+              "64d25f7034919d3fde829adf"
+            ]
+          },
+          "nodeID": "64d25f7034919d3fde829ae1",
+          "coords": [
+            -123.94085005833655,
+            -292.9226438971365
+          ]
+        },
+        "64d25f7b34919d3fde829ae5": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "r8eu3b23",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Thanks for using Voiceflow, goodbye"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "64d25f7b34919d3fde829ae6"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64d25f7b34919d3fde829ae5"
+        },
+        "64d25f7b34919d3fde829ae7": {
+          "type": "block",
+          "data": {
+            "name": "Goodbye",
+            "steps": [
+              "64d25f7b34919d3fde829ae5",
+              "64d2600434919d3fde829aef"
+            ],
+            "color": ""
+          },
+          "nodeID": "64d25f7b34919d3fde829ae7",
+          "coords": [
+            444.57358917186417,
+            -300.9581836742418
+          ]
+        },
+        "64d2600434919d3fde829aef": {
+          "type": "exit",
+          "data": {
+            "name": "",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "nodeID": "64d2600434919d3fde829aef"
         }
       }
     },
@@ -2010,6 +2437,427 @@
           "nodeID": "648904786b7bd27de5defbec"
         }
       }
+    },
+    "64ef9d80d3a06800070efbd8": {
+      "_id": "64ef9d80d3a06800070efbd8",
+      "name": "Plugins",
+      "type": "TOPIC",
+      "zoom": 100,
+      "nodes": {
+        "64ef9d80215bab00078a4d93": {
+          "type": "block",
+          "nodeID": "64ef9d80215bab00078a4d93",
+          "coords": [
+            360,
+            120
+          ],
+          "data": {
+            "name": "",
+            "color": "",
+            "steps": [
+              "64ef9d80215bab00078a4d92"
+            ]
+          }
+        },
+        "64ef9d80215bab00078a4d92": {
+          "type": "intent",
+          "nodeID": "64ef9d80215bab00078a4d92",
+          "data": {
+            "intent": "dwiz3nlu",
+            "mappings": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "id": "64ef9d80215bab00078a4d94",
+                  "type": "next",
+                  "target": "64ef9df2660be37730870e82",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          461.49,
+                          142
+                        ]
+                      },
+                      {
+                        "point": [
+                          589.75,
+                          140.5
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "availability": "GLOBAL",
+            "name": ""
+          }
+        },
+        "64ef9df2660be37730870e80": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "qvjv3ngo",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Activating the "
+                      },
+                      {
+                        "id": "uki93nzs",
+                        "name": "plugin",
+                        "isSlot": true,
+                        "type": "variable",
+                        "children": [
+                          {
+                            "text": ""
+                          }
+                        ]
+                      },
+                      {
+                        "text": " plugin"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "64ef9df2660be37730870e81"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64ef9df2660be37730870e80"
+        },
+        "64ef9df2660be37730870e82": {
+          "type": "block",
+          "data": {
+            "name": "Activate Plugin",
+            "steps": [
+              "64ef9df2660be37730870e80",
+              "64ef9e2e660be37730870ec3"
+            ],
+            "color": ""
+          },
+          "nodeID": "64ef9df2660be37730870e82",
+          "coords": [
+            754.7499999999999,
+            113.49996948242185
+          ]
+        },
+        "64ef9e2e660be37730870ec3": {
+          "type": "ifV2",
+          "data": {
+            "name": "If",
+            "expressions": [
+              {
+                "type": null,
+                "name": "",
+                "value": [
+                  {
+                    "logicInterface": "variable",
+                    "type": "equals",
+                    "value": [
+                      {
+                        "type": "variable",
+                        "value": "plugin"
+                      },
+                      {
+                        "type": "value",
+                        "value": "tetris"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "noMatch": {
+              "type": "path",
+              "pathName": "Else"
+            },
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "else": {
+                  "id": "64ef9e51660be37730870ecf",
+                  "type": "else",
+                  "target": "64ef9e6b660be37730870ed3",
+                  "data": {}
+                }
+              },
+              "dynamic": [
+                {
+                  "type": "",
+                  "target": "64ef9e89660be37730870ee4",
+                  "id": "64ef9e2e660be37730870ec4",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          920.75,
+                          253.75
+                        ]
+                      },
+                      {
+                        "point": [
+                          1386,
+                          254.25
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "nodeID": "64ef9e2e660be37730870ec3"
+        },
+        "64ef9e6b660be37730870ed1": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "i5s03nfw",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "The plugin \""
+                      },
+                      {
+                        "id": "uki93nzs",
+                        "name": "plugin",
+                        "isSlot": true,
+                        "type": "variable",
+                        "children": [
+                          {
+                            "text": ""
+                          }
+                        ]
+                      },
+                      {
+                        "text": "\" is not configured. What else can I help you with?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "64ef9e6b660be37730870ed2"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64ef9e6b660be37730870ed1"
+        },
+        "64ef9e6b660be37730870ed3": {
+          "type": "block",
+          "data": {
+            "name": "Plugin Not Found",
+            "steps": [
+              "64ef9e6b660be37730870ed1",
+              "64ef9ea8660be37730870f36"
+            ],
+            "color": "#CB627B"
+          },
+          "nodeID": "64ef9e6b660be37730870ed3",
+          "coords": [
+            1025.9999999999998,
+            428.4999694824218
+          ]
+        },
+        "64ef9e89660be37730870ee2": {
+          "type": "trace",
+          "data": {
+            "name": "plugin:tetris",
+            "_v": 1,
+            "paths": [
+              {
+                "label": "",
+                "isDefault": true
+              }
+            ],
+            "payload": {
+              "name": "plugin:tetris",
+              "body": "",
+              "isBlocking": false
+            },
+            "defaultPath": 0,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": [
+                {
+                  "type": "",
+                  "target": null,
+                  "id": "64ef9e89660be37730870ee3",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1460.75,
+                          281.25
+                        ]
+                      },
+                      {
+                        "point": [
+                          1534.75,
+                          281.75
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "nodeID": "64ef9e89660be37730870ee2",
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "64ef9e89660be37730870ee4": {
+          "type": "block",
+          "data": {
+            "name": "Play Tetris",
+            "steps": [
+              "64ef9e89660be37730870ee2",
+              "64ef9ea3660be37730870f24",
+              "64ef9ea3660be37730870f27"
+            ],
+            "color": "#56b365"
+          },
+          "nodeID": "64ef9e89660be37730870ee4",
+          "coords": [
+            1550.9999999999998,
+            227.24996948242188
+          ]
+        },
+        "64ef9ea3660be37730870f24": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "rahs3b7p",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Anything else I can help you with?"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "64ef9ea3660be37730870f25"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64ef9ea3660be37730870f24"
+        },
+        "64ef9ea3660be37730870f27": {
+          "type": "interaction",
+          "data": {
+            "name": "Choice",
+            "choices": [],
+            "intentScope": "GLOBAL",
+            "chips": null,
+            "buttons": null,
+            "noMatch": null,
+            "noReply": null,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "else": {
+                  "type": "else",
+                  "target": null,
+                  "id": "64ef9ea3660be37730870f28"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64ef9ea3660be37730870f27",
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "64ef9ea8660be37730870f36": {
+          "type": "interaction",
+          "data": {
+            "name": "Choice",
+            "choices": [],
+            "intentScope": "GLOBAL",
+            "chips": null,
+            "buttons": null,
+            "noMatch": null,
+            "noReply": null,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "else": {
+                  "type": "else",
+                  "target": null,
+                  "id": "64ef9ea8660be37730870f37"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "64ef9ea8660be37730870f36"
+        }
+      },
+      "offsetX": 0,
+      "offsetY": 0,
+      "modified": 1693425024,
+      "variables": [],
+      "menuItems": [
+        {
+          "type": "NODE",
+          "sourceID": "64ef9d80215bab00078a4d92"
+        }
+      ],
+      "creatorID": 10585,
+      "versionID": "64890a7a34f66300070f648a",
+      "intentStepIDs": [
+        "64ef9d80215bab00078a4d92"
+      ]
     }
   },
   "variableStates": []
