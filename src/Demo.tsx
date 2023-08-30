@@ -2,7 +2,7 @@ import 'react-calendar/dist/Calendar.css';
 
 import { Chat, ChatWindow, Launcher, RuntimeAPIProvider, SessionStatus, SystemResponse, TurnType, UserResponse } from '@voiceflow/react-chat';
 import { useContext, useState } from 'react';
-import { match, P } from 'ts-pattern';
+import { match } from 'ts-pattern';
 
 import { LiveAgentStatus } from './components/LiveAgentStatus.component';
 import { StreamedMessage } from './components/StreamedMessage.component';
