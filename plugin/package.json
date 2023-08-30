@@ -1,0 +1,14 @@
+{
+  "name": "demo-plugin",
+  "private": true,
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.0.4",
+    "vite": "4.3.9"
+  }
+}

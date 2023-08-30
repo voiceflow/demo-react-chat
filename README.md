@@ -92,3 +92,13 @@ The `created_at` date is rendered with the locale-appropriate date format.
 This will switch the conversation into a mode that emulates talking with a live agent.
 New messages will skip the Voiceflow logic and be sent directly to the agent.
 You can also end the live conversation and return to talking with the Voiceflow bot.
+Make sure to run the server in `./server` with the command `yarn dev`.
+
+### `plugin:tetris`
+
+- "Open tetris"
+- "Launch tetris"
+
+This will display an embedded `<iframe>` pointed at `https://tetris.com/`.
+It is meant to showcase how you can distribute "plugin" scripts that dynamically add functionality to the widget.
+Make sure to build the plugin in `./plugin` with the command `yarn build`.
