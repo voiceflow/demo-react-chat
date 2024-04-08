@@ -1,3 +1,10 @@
+> [!CAUTION]
+> This repository has been archived and should no longer be referenced as an example of the [react-chat](https://github.com/voiceflow/react-chat) library.
+>
+> However, the functionality on display here has been replicated in the `react-chat` repo:
+> 1. Custom messages are now built in! [See our documentation](https://developer.voiceflow.com/docs/render-custom-widgets-effects) to get started
+> 2. A rebuilt demo of live agent handoff [can be found here](https://github.com/voiceflow/react-chat/tree/master/examples/live-agent)
+
 # demo-react-chat
 
 ## Install Dependencies
